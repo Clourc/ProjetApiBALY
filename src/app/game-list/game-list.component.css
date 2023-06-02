@@ -1,11 +1,31 @@
 app-game-card {
-    display: flex;
-    flex-direction: column;
-    width: 365px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  margin-bottom: 1rem;
+  border: solid 1px black;
+  border-radius: 0 0 10px 10px;  
+}
+
+app-game-card:hover {
+    transform: scale(1.1);
 }
 
 div {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px){
+  app-game-card {
+    width: 45%;
+    flex-direction: row;
+    border-radius: 0 10px 10px 0px;  
+  }
 }
