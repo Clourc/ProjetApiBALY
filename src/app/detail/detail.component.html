@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="thumbCol">
+    <div id="fixedThumb">
+      <h1>{{ this.gameDetails.title }}</h1>
+      <img
+        id="fixedImg"
+        [src]="this.gameDetails.thumbnail"
+        alt="Game's thumbnail"
+      />
+
+      <ul>
+        <li><button>👍</button></li>
+        <li><button>👎</button></li>
+        <li>
+          <button>
+            <a [href]="this.gameDetails.game_url" target="_blank">▶️</a>
+          </button>
+        </li>
+
+        <li><button>⭐</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="textNStuff">
+    <h2>Game's description:</h2>
+    <p>
+      {{ this.gameDetails.description }}
+    </p>
+
+    <p>Developer:{{ this.gameDetails.developer }}</p>
+
+    <ul id="sysReq" *ngIf="this.gameDetails.os !== 'Windows'">
+      Minimum system requirements:
+      <li>
+        graphics : {{ this.gameDetails.minimum_system_requirements.graphics }}
+      </li>
+
+      <li>Memory :{{ this.gameDetails.minimum_system_requirements.memory }}</li>
+
+      <li>OS :{{ this.gameDetails.minimum_system_requirements.os }}</li>
+
+      <li>
+        Processor :{{ this.gameDetails.minimum_system_requirements.processor }}
+      </li>
+      <li>
+        Storage :{{ this.gameDetails.minimum_system_requirements.graphics }}
+      </li>
+    </ul>
+
+    <p>Plateform:{{ this.gameDetails.platform }}</p>
+    <p>Publisher:{{ this.gameDetails.publisher }}</p>
+    <p>Release date:{{ this.gameDetails.release_date }}</p>
+    <div id="screenshots">
+      <div class="screenshot" *ngFor="let screenshot of screenshotArray">
+       <a  [href]="this.screenshot.image" target="blank" > <img [src]="this.screenshot.image" alt="screenshot"/></a> 
+      </div>
+    </div>
+  </div>
+</div>
