@@ -1,0 +1,11 @@
+app-game-card {
+    display: flex;
+    flex-direction: column;
+    width: 365px;
+    align-items: center;
+}
+
+div {
+    display: flex;
+    gap: 2rem;
+}
