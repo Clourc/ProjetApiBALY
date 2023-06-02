@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-game-card',
@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./game-card.component.css']
 })
 export class GameCardComponent {
-  image: string = '/assets/placeholder/JackBlackBowser.png';
+  @Input() image: string = '/assets/placeholder/JackBlackBowser.png';
+  @Input() gameName: string = 'Nom du jeu';
+  @Input() gameGenre: string = 'RPG';
+  @Input() gamePlatform: string = '';
+  @Input() gameID: string = ''
+  @Input() gameShortDescription: string =  '';
+
+
   winIcon: string = '/assets/placeholder/windows-icon.png';
   browserIcon: string = '/assets/placeholder/browser-game-icon.png';
 }

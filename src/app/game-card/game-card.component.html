@@ -1,12 +1,18 @@
-<section>
-  <img [src]="image" id="game-thumbnail" />
-  <div class="game-card-info">
-    <h3>Nom du jeu</h3>
-    <div class="game-category-platform">
-      <p>MMORPG</p>
-      <!-- Style de jeu-->
-      <img [src]="winIcon" id="platformIcon" />
-      <!-- Icone pour représenter la plateform où est disponible le jeu -->
+<img [src]="this.image" id="game-thumbnail" />
+<div class="game-card-info">
+  <strong id="game-name">{{ this.gameName }}</strong>
+  <p id="short-description">{{this.gameShortDescription}}</p>
+  <div class="game-category-platform">
+    <!-- Style de jeu-->
+    <strong>{{ this.gameGenre }}</strong>
+    <!-- Icone pour représenter la plateform où est disponible le jeu -->
+    <div>
+      <div *ngIf="this.gamePlatform === 'PC (Windows)'; else browserGame">
+        <img [src]="winIcon" id="platformIcon" />
+      </div>
+      <ng-template #browserGame>
+        <img [src]="browserIcon" id="platformIcon" />
+      </ng-template>
     </div>
   </div>
-</section>
+</div>
