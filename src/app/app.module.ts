@@ -7,10 +7,9 @@ import { AppComponent } from './app.component';
 import { DetailComponent } from './detail/detail.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 
-/* import { HttpClientModule } from '@angular/common/http'; */
 
-import { GameListComponent } from './game-list/game-list.component';
-import { GameCardComponent } from './game-card/game-card.component';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +21,7 @@ import { GameCardComponent } from './game-card/game-card.component';
     BrowserModule,
     AppRoutingModule,
     OverlayModule,
-    /* HttpClientModule,  */
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

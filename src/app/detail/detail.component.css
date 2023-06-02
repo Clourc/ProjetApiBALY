@@ -1,43 +1,95 @@
-.row{
-    display: flex;
-    
-    
+* {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-#fixedThumb{
+h1 {
+  text-align: center;
+}
+
+img {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}
+li {
+  list-style: none;
+}
+
+
+button {
+  width: 100px;
+  height: 40px;
+}
+
+#textNStuff {
+  margin: 20px;
+}
+
+#screenshot{
+    display: flex;
+    flex-direction: column;
+}
+
+#sysReq{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    display: flex;
+  }
+  #fixedThumb {
     display: flex;
     flex-direction: column;
     position: sticky;
     flex-direction: column;
-top:100px;
-left:40px;
+    top: 100px;
+    left: 40px;
     background-color: grey;
-   
+  }
+  #fixedThumb,
+  ul {
+    display: flex;
+  }
 
-}
-    #fixedThumb,ul{
-        display: flex;
-    }
-
-
-#fixedThumb, li{
+  #fixedThumb,
+  li {
     list-style: none;
-   
-}
-#fixedThumb, img{
+  }
+  #fixedThumb,
+  #fixedImg {
     height: 365px;
     width: 206px;
+  }
 
-}
-
-#textNStuff{
-  
-}
-
-.gameIMG{
+  .gameIMG {
     display: flex;
     flex-direction: row;
+  }
+  li,
+  button {
+    width: inherit;
+    height: inherit;
+  }
 
+  #screenshots {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+.screenshot{
+    width: 400px;
 }
-
-
-
+}
