@@ -1,0 +1,43 @@
+.row{
+    display: flex;
+    
+    
+}
+#fixedThumb{
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    flex-direction: column;
+top:100px;
+left:40px;
+    background-color: grey;
+   
+
+}
+    #fixedThumb,ul{
+        display: flex;
+    }
+
+
+#fixedThumb, li{
+    list-style: none;
+   
+}
+#fixedThumb, img{
+    height: 365px;
+    width: 206px;
+
+}
+
+#textNStuff{
+  
+}
+
+.gameIMG{
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+

@@ -3,16 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DetailComponent } from './detail/detail.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+
+/* import { HttpClientModule } from '@angular/common/http'; */
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DetailComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OverlayModule,
+    /* HttpClientModule,  */
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
