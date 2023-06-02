@@ -1,18 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-export const callAPI = function (http: HttpClient, endpoint: string) {
+export const callAPI = function (
+  http: HttpClient,
+  endpoint: string
+): Observable<any[]> {
   let headers = new HttpHeaders({
     'x-rapideapi-host': 'free-to-play-games-database.p.rapidapi.com',
     'x-rapidapi-key': '79c75eb211mshb564487928aea55p1d8226jsn01360c399d44',
   });
 
-    http
-    .get<any>(`https://free-to-play-games-database.p.rapidapi.com/api/${endpoint}`, {
-      headers: headers,
-    })
-    .subscribe((data) => {
-      console.log(data);
-    });
+  const basicURI: string =
+    'https://free-to-play-games-database.p.rapidapi.com/api/';
+
+  return http.get<any>(`${basicURI}${endpoint}`, {
+    headers: headers,
+  });
 };
 
 /* Use the API method callAPI with 2 parameters: 
