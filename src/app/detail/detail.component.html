@@ -30,7 +30,7 @@
 
     <p>Developer:{{ this.gameDetails.developer }}</p>
 
-    <ul id="sysReq" *ngIf="this.gameDetails.os !== 'Windows'">
+    <ul id="sysReq" *ngIf="this.gameDetails.platform == 'Windows'">
       Minimum system requirements:
       <li>
         graphics : {{ this.gameDetails.minimum_system_requirements.graphics }}
@@ -38,7 +38,7 @@
 
       <li>Memory :{{ this.gameDetails.minimum_system_requirements.memory }}</li>
 
-      <li>OS :{{ this.gameDetails.minimum_system_requirements.os }}</li>
+      <li>platform :{{ this.gameDetails.minimum_system_requirements.platform }}</li>
 
       <li>
         Processor :{{ this.gameDetails.minimum_system_requirements.processor }}
