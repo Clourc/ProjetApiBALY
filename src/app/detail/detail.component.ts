@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { callAPI } from '../api-config/config';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent implements OnInit {
-  constructor(private http: HttpClient) {}
-  screenshotArray :any[] = [];
-  gameDetails : any;
-    ngOnInit(): void {
-    callAPI(this.http, 'game?id=32').subscribe((data) => {
-      console.log(data);
-      this.gameDetails = data ;
-      for( let i=0; i<this.gameDetails.screenshots.length; i++){
-        this.screenshotArray.push(this.gameDetails.screenshots[i])
-      }
+  constructor(private http: HttpClient, private router: Router) {}
+  public href: string = '';
+  screenshotArray: any[] = [];
+  gameDetails: any;
 
+  ngOnInit(): void {
+    const gameID = this.router.url.split('/').pop()
+    callAPI(this.http, `game?id=${gameID}`).subscribe((data) => {
+      this.gameDetails = data;
+      console.log(this.gameDetails)
+      for (let i = 0; i < this.gameDetails.screenshots.length; i++) {
+        this.screenshotArray.push(this.gameDetails.screenshots[i]);
+      }
     });
-    console.log(this.gameDetails)
-    console.log(this.screenshotArray)
   }
- 
 
   // screenshotDisplay(gameDetails :any){
   //   if (gameDetails.platform === "Windows"){
@@ -32,5 +32,4 @@ export class DetailComponent implements OnInit {
   //   }
 
   // }
-
 }
