@@ -8,7 +8,7 @@ import { DetailComponent } from './detail/detail.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GameListComponent } from './game-list/game-list.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './footer.component';
 
 
 
@@ -21,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     DetailComponent,
     GameCardComponent,
     GameListComponent,
-    FooterComponent
+    FooterComponent,
+  
     
   ],
   imports: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     OverlayModule,
     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
