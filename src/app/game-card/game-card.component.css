@@ -1,3 +1,12 @@
+#game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 #platformIcon {
   width: 1rem;
   height: 1rem;
@@ -44,5 +53,11 @@ strong {
   #short-description {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 1268px){
+  #game-card {
+    flex-direction: row;
   }
 }
