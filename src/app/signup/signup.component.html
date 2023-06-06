@@ -1,0 +1,53 @@
+<div>
+  <h1>Créer un compte</h1>
+  <form (ngSubmit)="signupForm.valid && onSubmit()" [formGroup]="signupForm" #signup_form="ngForm">
+    <label for="id">Identifiant: </label>
+    <input type="text" name="id" formControlName="id" />
+    <div *ngIf="signupForm.controls.id.errors && signup_form.submitted">
+      <span *ngIf="signupForm.controls.id.errors?.['required']"
+        >Le champ Identifiant doit être renseigné</span
+      >
+    </div>
+
+    <div formGroupName="passwords">
+      <label for="password">Mot de passe: </label>
+      <input type="password" name="password" formControlName="password" />
+      <div *ngIf="signupForm.controls.passwords.controls.password.errors && signup_form.submitted">
+        <span
+          *ngIf="signupForm.controls.passwords.controls.password.errors?.['required']"
+          >Le champ Mot de passe doit être renseigné</span
+        >
+      </div>
+
+      <label for="confirm-password">Confirmer mot de passe: </label>
+      <input
+        type="password"
+        name="confirm-password"
+        formControlName="confirmPassword"
+      />
+      <div
+        *ngIf="signupForm.controls.passwords.controls.confirmPassword.errors && signup_form.submitted"
+      >
+        <span
+          *ngIf="signupForm.controls.passwords.controls.confirmPassword.errors?.['required']"
+          >Le champ Confirmer mot de passe doit être renseigné</span
+        >
+      </div>
+      <div *ngIf="signupForm.controls.passwords.errors">
+        <span
+          *ngIf="signupForm.controls.passwords.errors?.['mustMatch']"
+          >Les deux Mots de passe doivent être identiques</span
+        >
+      </div>
+    </div>
+
+    <label for="email">Adresse email: </label>
+    <input type="email" name="email" formControlName="email" />
+    <div *ngIf="signupForm.controls.email.errors && signup_form.submitted">
+        <span *ngIf="signupForm.controls.email.errors?.['required']">Le champ email doit être renseigné</span>
+        <span *ngIf="signupForm.controls.email.errors?.['email']">Le champ email doit être valide</span>
+    </div>
+
+    <button type="submit">Confirmer</button>
+  </form>
+</div>

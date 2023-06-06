@@ -1,0 +1,23 @@
+<div id="login-page">
+  <h1>Se connecter</h1>
+  <form (ngSubmit)="login_form.valid && onSubmit()" [formGroup]="loginForm" #login_form="ngForm">
+    <label for="id">Identifiant: </label><br />
+    <input type="text" name="id" formControlName="id" /><br />
+    <div *ngIf="loginForm.controls.id.errors && login_form.submitted">
+      <span *ngIf="loginForm.controls.id.errors?.['required']">Le champ Identifiant doit être rempli</span>
+    </div>
+    <label for="password">Mot de passe: </label><br />
+    <input type="password" name="password" formControlName="password" /><br />
+    <div *ngIf="loginForm.controls.password.errors && login_form.submitted">
+      <span *ngIf="loginForm.controls.password.errors?.['required']">Le champ Identifiant doit être rempli</span>
+    </div>
+
+    <button type="submit">Connexion</button>
+  </form>
+
+  <hr />
+
+  <div>
+    <button id="to-signup" type="button" routerLink="/signup">Créer un compte</button>
+  </div>
+</div>
