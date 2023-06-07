@@ -11,6 +11,7 @@ import { GameCardComponent } from './game-card/game-card.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { MentionsComponent } from './mentions/mentions.component';
+import { RandomComponent } from './random/random.component';
 
 
 
@@ -23,6 +24,7 @@ import { MentionsComponent } from './mentions/mentions.component';
     GameListComponent,
     FooterComponent,
     MentionsComponent,
+    RandomComponent,
   ],
   imports: [
     BrowserModule,
