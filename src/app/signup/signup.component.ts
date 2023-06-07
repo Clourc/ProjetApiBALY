@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  Validators,
-  AbstractControl,
-  ValidationErrors,
+  Validators
 } from '@angular/forms';
+import { passwordMatching } from '../formCustomValidators/customValidators';
 
 @Component({
   selector: 'app-signup',
@@ -26,23 +25,13 @@ export class SignupComponent implements OnInit {
       }
     ),
     email: ['', [Validators.required, Validators.email]],
+    cgu: [false, Validators.requiredTrue]
   });
 
   ngOnInit(): void {}
 
   onSubmit(): void {
     console.log('Signing up');
-  }
-}
-
-export function passwordMatching(
-  control: AbstractControl
-): ValidationErrors | null {
-  const password: string = control.value.password;
-  const confirmPassword: string = control.value.confirmPassword;
-  if (password === confirmPassword) {
-    return null;
-  } else {
-    return { mustMatch: "The passwords doesn't match" };
+    console.log(this.signupForm)
   }
 }

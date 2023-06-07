@@ -80,6 +80,14 @@
       </div>
     </div>
 
+    <div id="cgu-checkbox">
+      <input type="checkbox" name="cgu" formControlName="cgu">
+      <label for="cgu">J'accepte les <a routerLink="">conditions générale d'utilisation</a></label>
+    </div>
+    <div *ngIf="signupForm['controls'].cgu.errors && signup_form.submitted">
+      <span *ngIf="signupForm['controls'].cgu.errors?.['required']">Vous devez accepter les CGU</span>
+    </div>
+
     <button type="submit">Confirmer</button>
   </form>
 </div>

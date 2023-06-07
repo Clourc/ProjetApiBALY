@@ -6,4 +6,13 @@
 
 button {
     width: 125px;
+    height: 1.5rem;
+    background-color:mediumblue;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: aquamarine;
+    color: black
 }

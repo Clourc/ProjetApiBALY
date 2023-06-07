@@ -11,7 +11,7 @@ form {
     justify-content: space-around;
     margin-top: 1rem;
     width: 80%;
-    height: 275px;
+    height: 330px;
 }
 
 span {
@@ -42,4 +42,17 @@ button {
 
 #retour_titre a {
     margin-left: 0.5rem;
+}
+
+#cgu-checkbox {
+    display: inline;
+    margin: auto
+}
+
+#cgu-checkbox input {
+    margin-right: 0.3rem
+}
+
+#cgu-checkbox a {
+    color: black;
 }

@@ -21,6 +21,11 @@
   margin-bottom: 5px;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .game-card-info {
   display: flex;
   flex-direction: column;
