@@ -26,10 +26,20 @@ label {
 button {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 50%;
     margin: auto;
 }
 
-h2 {
+#retour_titre {
     margin-top: 1rem;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr;
+    width: 100%;
+}
+
+#retour_titre h2 {
+    text-align: center;
+}
+
+#retour_titre a {
+    margin-left: 0.5rem;
 }

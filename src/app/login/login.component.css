@@ -17,10 +17,19 @@ form {
     margin: 1rem;
 }
 
-input{
-    margin: 1rem
+.input-field {
+    margin-top: 1rem
 }
 
 #to-signup {
     margin: 2rem
+}
+
+span {
+    color: red;
+    font-size: 0.8rem;
+}
+
+button {
+    margin-top: 1rem;
 }
