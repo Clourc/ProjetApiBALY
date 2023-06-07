@@ -1,28 +1,35 @@
 footer {
-  background-color: #e13333;
+  background-color: #278f38;
   padding: 20px 0;
+  height: auto;
+ justify-content: center;
+ 
+ 
+
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-}
+
+ 
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+align-items: center;
 }
 
 
-
+/* 
 .text-right {
   text-align: right;
-}
+} */
 
 a {
   color: #333;
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: 20px;
+  
+  
 }
 
 button {
@@ -31,6 +38,7 @@ button {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+ 
 }
 
 button:hover {

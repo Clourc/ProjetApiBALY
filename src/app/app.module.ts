@@ -10,6 +10,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { MentionsComponent } from './mentions/mentions.component';
 
 
 
@@ -20,12 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     DetailComponent,
     GameCardComponent,
     GameListComponent,
-<<<<<<< HEAD
     FooterComponent,
-  
-    
-=======
->>>>>>> 69e007c9f141c164e9d95da329da4ecb31b756f6
+    MentionsComponent,
   ],
   imports: [
     BrowserModule,
