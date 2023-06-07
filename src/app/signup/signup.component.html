@@ -1,51 +1,83 @@
 <div>
-  <h1>Créer un compte</h1>
-  <form (ngSubmit)="signupForm.valid && onSubmit()" [formGroup]="signupForm" #signup_form="ngForm">
-    <label for="id">Identifiant: </label>
-    <input type="text" name="id" formControlName="id" />
-    <div *ngIf="signupForm.controls.id.errors && signup_form.submitted">
-      <span *ngIf="signupForm.controls.id.errors?.['required']"
-        >Le champ Identifiant doit être renseigné</span
-      >
+  <h2>Créer un compte</h2>
+  <form
+    (ngSubmit)="signupForm.valid && onSubmit()"
+    [formGroup]="signupForm"
+    #signup_form="ngForm"
+  >
+    <div>
+      <label for="UserId">Identifiant: </label>
+      <input type="text" name="UserId" formControlName="id" />
+      <div *ngIf="signupForm['controls'].id.errors && signup_form.submitted">
+        <span *ngIf="signupForm['controls'].id.errors?.['required']"
+          >Le champ Identifiant doit être renseigné</span
+        >
+        <span *ngIf="signupForm['controls'].id.errors?.['minlength']"
+          >Votre identifiant doit comporter 3 caractères minimum</span
+        >
+      </div>
     </div>
 
     <div formGroupName="passwords">
-      <label for="password">Mot de passe: </label>
-      <input type="password" name="password" formControlName="password" />
-      <div *ngIf="signupForm.controls.passwords.controls.password.errors && signup_form.submitted">
+      <label for="UserPassword">Mot de passe: </label>
+      <input type="password" name="UserPassword" formControlName="password" />
+      <div
+        *ngIf="
+          signupForm['controls'].passwords['controls'].password.errors &&
+          signup_form.submitted
+        "
+      >
         <span
-          *ngIf="signupForm.controls.passwords.controls.password.errors?.['required']"
+          *ngIf="signupForm['controls'].passwords['controls'].password.errors?.['required']"
           >Le champ Mot de passe doit être renseigné</span
+        >
+        <span
+          *ngIf="signupForm['controls'].passwords['controls'].password.errors?.['minlength']"
+          >Votre Mot de passe doit comporter 8 caratères minimum</span
         >
       </div>
 
-      <label for="confirm-password">Confirmer mot de passe: </label>
+      <label for="UserConfirm-password">Confirmer mot de passe: </label>
       <input
         type="password"
-        name="confirm-password"
+        name="UserConfirm-password"
         formControlName="confirmPassword"
       />
       <div
-        *ngIf="signupForm.controls.passwords.controls.confirmPassword.errors && signup_form.submitted"
+        *ngIf="
+          signupForm['controls'].passwords['controls'].confirmPassword.errors &&
+          signup_form.submitted
+        "
       >
         <span
-          *ngIf="signupForm.controls.passwords.controls.confirmPassword.errors?.['required']"
+          *ngIf="signupForm['controls'].passwords['controls'].confirmPassword.errors?.['required']"
           >Le champ Confirmer mot de passe doit être renseigné</span
         >
       </div>
-      <div *ngIf="signupForm.controls.passwords.errors">
-        <span
-          *ngIf="signupForm.controls.passwords.errors?.['mustMatch']"
-          >Les deux Mots de passe doivent être identiques</span
+      <div
+        *ngIf="
+          signupForm['controls'].passwords.errors &&
+          (signupForm['controls'].passwords['controls'].confirmPassword.dirty ||
+            signup_form.submitted)
+        "
+      >
+        <span *ngIf="signupForm['controls'].passwords.errors?.['mustMatch']"
+          >Les deux mots de passe doivent être identiques</span
         >
       </div>
     </div>
 
-    <label for="email">Adresse email: </label>
-    <input type="email" name="email" formControlName="email" />
-    <div *ngIf="signupForm.controls.email.errors && signup_form.submitted">
-        <span *ngIf="signupForm.controls.email.errors?.['required']">Le champ email doit être renseigné</span>
-        <span *ngIf="signupForm.controls.email.errors?.['email']">Le champ email doit être valide</span>
+    <div>
+      <label for="UserEmail">Adresse email: </label>
+      <input type="email" name="UserEmail" formControlName="email" />
+      <div *ngIf="signupForm['controls'].email.errors && signup_form.submitted">
+        <span *ngIf="signupForm['controls'].email.errors?.['required']"
+          >Le champ email doit être renseigné</span
+        >
+        <span *ngIf="signupForm['controls'].email.errors?.['email']"
+          >Le champ email doit être valide</span
+        >
+      </div>
     </div>
 
     <button type="submit">Confirmer</button>

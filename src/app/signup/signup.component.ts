@@ -15,10 +15,10 @@ export class SignupComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   signupForm: any = this.fb.group({
-    id: ['', Validators.required],
+    id: ['', [Validators.required, Validators.minLength(3)]],
     passwords: this.fb.group(
       {
-        password: ['', Validators.required],
+        password: ['', [Validators.required, Validators.minLength(8)]],
         confirmPassword: ['', Validators.required],
       },
       {
