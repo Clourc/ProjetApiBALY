@@ -1,4 +1,7 @@
+<app-card-fav></app-card-fav>
 <h1>Liste des jeux</h1>
+
+
 <div>
   <app-game-card *ngFor="let game of gamesToDisplay" [image]="this.game.thumbnail" [gameName]="this.game.title" [gameGenre]="this.game.genre" [gamePlatform]="this.game.platform" [gameID]="this.game.id" [gameShortDescription]="this.game.short_description"></app-game-card>
 </div>

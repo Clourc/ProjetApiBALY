@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { callAPI } from '../api-config/config';
-import { Subscriber } from 'rxjs';
-import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-card-fav',
@@ -11,10 +9,14 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./card-fav.component.css'],
 })
 export class CardFavComponent implements OnInit {
-  constructor(private http: HttpClient) {}
-  cardFavIds: number[] = [1,475,452,58];
+  @Input() game: any;
+  
+
+  constructor(private http: HttpClient, private router: Router) {}
+  
+  cardFavIds: number[] = [1, 475, 452, 58];
   gameFav: any[] = [];
- 
+
   ngOnInit(): void {
     for (let gameId of this.cardFavIds) {
       callAPI(this.http, `game?id=${gameId}`).subscribe((data) => {
@@ -22,5 +24,10 @@ export class CardFavComponent implements OnInit {
       });
     }
     console.log(this.gameFav);
+  }
+
+  selectClick(gameId: number): void {
+   
+    this.router.navigate(['game', gameId]);
   }
 }
