@@ -6,12 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./game-card.component.css']
 })
 export class GameCardComponent {
-  @Input() image: string = '/assets/placeholder/JackBlackBowser.png';
-  @Input() gameName: string = 'Nom du jeu';
-  @Input() gameGenre: string = 'RPG';
-  @Input() gamePlatform: string = '';
-  @Input() gameID: string = ''
-  @Input() gameShortDescription: string =  '';
+  @Input() game: any;
 
 
   winIcon: string = '/assets/placeholder/windows-icon.png';
