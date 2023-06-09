@@ -24,12 +24,5 @@ export class DetailComponent implements OnInit {
     });
   }
 
-  // screenshotDisplay(gameDetails :any){
-  //   if (gameDetails.platform === "Windows"){
-  //     for (let i=0; i<gameDetails.screenshot.length ; i++){
-  //       return gameDetails.screenshot.image[i]
-  //     }
-  //   }
 
-  // }
 }

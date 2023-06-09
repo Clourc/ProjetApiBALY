@@ -1,0 +1,84 @@
+
+app-game-card {
+ 
+  width: 75%;
+  border: solid 1px black;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+
+
+   select{
+    display: flex;
+    align-items: center;
+
+  }
+
+  
+  h1,h2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+select{
+  width: 30%;
+  margin: 1em;
+}
+
+  option{
+    text-align: center;
+    
+  }
+
+
+
+#naviagtionElements{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  
+  @media screen and (min-width: 768px) {
+
+
+    app-game-card:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  
+    app-game-card {
+      width: 100%;
+      border-radius: 0 10px 10px 0;
+     
+
+    
+    }
+
+    
+.gameCardStyle{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+ 
+
+  grid-gap: 3em;
+  width: 100%;
+  padding-left: 2em;
+  padding-right: 2em;
+  
+
+}
+
+
+
+}
+  
+  
