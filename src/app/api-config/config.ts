@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export const callAPI = function (
+export  const callAPI = function (
   http: HttpClient,
   endpoint: string
 ): Observable<any[]> {
