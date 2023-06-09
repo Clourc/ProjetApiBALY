@@ -9,20 +9,37 @@ import { callAPI } from '../api-config/config';
 })
 export class SimilarGamesComponent implements OnInit {
   constructor(private http: HttpClient) {}
+  gamesData: any[] = [];
+  maxNbShownGames: number = 10;
   @Input() gameCategory: string = '';
   @Input() gameId!: number;
+  
   similarGames: any[] = [];
+  
 
   ngOnInit() {
     if (this.gameCategory === 'MMOARPG') {
       this.gameCategory = 'MMORPG';
     }
+    if(this.gameCategory === 'ARPG'){
+      this.gameCategory = 'action-rpg';
+    }
     callAPI(this.http, `games?category=${this.gameCategory}`).subscribe(
       (data) => {
-        this.similarGames = data;
+        this.gamesData = data;
+        for (let i = 0; i < this.maxNbShownGames; i++) {
+          this.similarGames.push(this.gamesData[i]);
+        }
         this.removeCurrentGame(this.similarGames);
       }
     );
+  }
+
+  showMoreGames() {
+    this.maxNbShownGames += 10;
+    for (let i = this.maxNbShownGames; i < this.maxNbShownGames + 10; i++) {
+      this.similarGames.push(this.gamesData[i]);
+    }
   }
 
   reloadDetails(){
