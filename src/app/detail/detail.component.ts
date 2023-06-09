@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { callAPI } from '../api-config/config';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -12,6 +13,8 @@ export class DetailComponent implements OnInit {
   public href: string = '';
   screenshotArray: any[] = [];
   gameDetails: any;
+  isOpen: boolean = false;
+  overlayImageLink: string = '';
 
   ngOnInit(): void {
     const gameID = this.router.url.split('/').pop()
@@ -24,12 +27,9 @@ export class DetailComponent implements OnInit {
     });
   }
 
-  // screenshotDisplay(gameDetails :any){
-  //   if (gameDetails.platform === "Windows"){
-  //     for (let i=0; i<gameDetails.screenshot.length ; i++){
-  //       return gameDetails.screenshot.image[i]
-  //     }
-  //   }
+  getOverlayImage(screenshot: string){
+    this.overlayImageLink = screenshot;
+    console.log(this.overlayImageLink);
+  }
 
-  // }
 }
