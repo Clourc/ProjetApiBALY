@@ -11,8 +11,9 @@ const routes: Routes = [
   { path: '', component: GameListComponent},
   { path: 'game/:id', component: DetailComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'signup', component: SignupComponent}
-  { path: 'mentions', component: MentionsComponent}
+  { path: 'signup', component: SignupComponent},
+  { path: 'mentions', component: MentionsComponent},
+  { path: 'random', component: RandomComponent}
 ];
 
 @NgModule({

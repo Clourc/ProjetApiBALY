@@ -25,7 +25,7 @@ export class RandomComponent {
   getRandomGame(maxId: any) {
     let goRandom = Math.floor(Math.random() * (maxId - 1) + 1);
     console.log(goRandom);
-    if() {
+    if(this.gameList.some(game => game.id === goRandom)) {
       this.router.navigate([`game/${goRandom}`]);
     } else {
       this.getRandomGame(this.maxId);
