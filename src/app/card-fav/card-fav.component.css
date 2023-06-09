@@ -13,6 +13,7 @@
   width: 100%;
   max-height: 200px;
   object-fit: contain;
+  
 }
 
 a{
@@ -25,6 +26,7 @@ ul {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+ 
 }
 
 #card-fav li {
@@ -51,15 +53,25 @@ h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 18px;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-#card-fav li img {
+#card-fav li img  {
+  
+  width: auto;
+  height: auto;
   width: 100%;
   max-height: 200px;
-  border-radius: 10px;
+  top: 50%;
+  left: 50%;
   margin-bottom: 10px;
+  
+  
+}
+
+ ul :hover{
+  transform: scale(1.04)
 }
 
 #card-fav li p {
