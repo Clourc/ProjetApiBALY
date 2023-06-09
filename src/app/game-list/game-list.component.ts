@@ -8,7 +8,7 @@ import { callAPI } from '../api-config/config';
   styleUrls: ['./game-list.component.css'],
 })
 export class GameListComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   gamesToDisplay: any[] = [];
   maxNbShownGames: number = 10;
   savedData: any;
@@ -16,7 +16,7 @@ export class GameListComponent implements OnInit {
   ngOnInit(): void {
     callAPI(this.http, 'games').subscribe((data) => {
       this.savedData = data;
-      console.log(this.savedData)
+      console.log(data)
       if (data.length === 1) {
         this.gamesToDisplay.push(data);
       } else {
@@ -25,13 +25,13 @@ export class GameListComponent implements OnInit {
         }
       }
     });
-    console.log(this.gamesToDisplay);
   }
 
-  showMoreGames(){
+  showMoreGames() {
     this.maxNbShownGames += 10;
-    for(let i = this.maxNbShownGames; i < this.maxNbShownGames+10; i++){
+    for (let i = this.maxNbShownGames; i < this.maxNbShownGames + 10; i++) {
       this.gamesToDisplay.push(this.savedData[i]);
     }
   }
 }
+

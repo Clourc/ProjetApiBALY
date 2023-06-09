@@ -5,14 +5,14 @@ import { DetailComponent } from './detail/detail.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { RandomComponent } from './random/random.component';
 
 const routes: Routes = [
   { path: '', component: GameListComponent},
   { path: 'game/:id', component: DetailComponent},
-  { path: 'mentions', component: MentionsComponent}
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent}
+  { path: 'mentions', component: MentionsComponent}
 ];
 
 @NgModule({
