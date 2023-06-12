@@ -3,7 +3,7 @@
 
 
 <div>
-  <app-game-card *ngFor="let game of gamesToDisplay" [image]="this.game.thumbnail" [gameName]="this.game.title" [gameGenre]="this.game.genre" [gamePlatform]="this.game.platform" [gameID]="this.game.id" [gameShortDescription]="this.game.short_description"></app-game-card>
+  <app-game-card *ngFor="let game of gamesToDisplay" [game]="game"></app-game-card>
 </div>
 
 <button type="button" (click)="showMoreGames()">Plus...</button>

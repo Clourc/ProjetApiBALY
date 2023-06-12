@@ -1,0 +1,46 @@
+footer {
+  background-color: #278f38;
+  padding: 20px 0;
+  height: auto;
+ justify-content: center;
+ 
+ 
+
+}
+
+
+ 
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+align-items: center;
+}
+
+
+/* 
+.text-right {
+  text-align: right;
+} */
+
+a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 20px;
+  
+  
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+ 
+}
+
+button:hover {
+  background-color: #555;
+}
