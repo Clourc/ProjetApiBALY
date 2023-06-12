@@ -15,6 +15,11 @@ h1 {
   margin-bottom: 2rem;
 }
 
+button {
+  display: block;
+  margin: auto;
+}
+
 @media screen and (min-width: 768px) {
   app-game-card:hover {
     transform: scale(1.1);
@@ -23,6 +28,12 @@ h1 {
 
   app-game-card {
     width: 45%;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+@media screen and (min-width: 1268px) {
+  app-game-card {
     border-radius: 0 10px 10px 0;
   }
 }

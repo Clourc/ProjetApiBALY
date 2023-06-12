@@ -1,0 +1,42 @@
+<div id="login-page">
+  <h1>{{this.title}}</h1>
+  <form
+    (ngSubmit)="login_form.valid && onSubmit()"
+    [formGroup]="loginForm"
+    #login_form="ngForm"
+  >
+    <div class="input-field">
+      <label for="id">Identifiant: </label><br />
+      <input type="text" name="id" formControlName="id" /><br />
+      <div *ngIf="loginForm.controls.id.errors && login_form.submitted && !userLoggedIn">
+        <span *ngIf="loginForm.controls.id.errors?.['required']"
+          >Le champ Identifiant doit être rempli</span
+        >
+      </div>
+    </div>
+
+    <div class="input-field">
+      <label for="password">Mot de passe: </label><br />
+      <input type="password" name="password" formControlName="password" /><br />
+      <div *ngIf="loginForm.controls.password.errors && login_form.submitted && !userLoggedIn">
+        <span *ngIf="loginForm.controls.password.errors?.['required']"
+          >Le champ mot de passe doit être rempli</span
+        >
+      </div>
+    </div>
+
+    <div *ngIf="loginForm.errors && login_form.submitted && !userLoggedIn">
+      <span *ngIf="loginForm.errors?.['wrongLogin']">Identifiant ou mot de passe incorrect</span>
+    </div>
+
+    <button type="submit">Connexion</button>
+  </form>
+
+  <hr />
+
+  <div>
+    <button id="to-signup" type="button" routerLink="/signup">
+      Créer un compte
+    </button>
+  </div>
+</div>

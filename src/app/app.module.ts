@@ -10,6 +10,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FooterComponent } from './footer/footer.component';
+import { MentionsComponent } from './mentions/mentions.component';
+import { RandomComponent } from './random/random.component';
 
 
 @NgModule({
@@ -20,6 +25,11 @@ import { SearchComponent } from './search/search.component';
     GameCardComponent,
     GameListComponent,
     SearchComponent,
+    FooterComponent,
+    MentionsComponent,
+    RandomComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -28,11 +38,9 @@ import { SearchComponent } from './search/search.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
-
-
+export class AppModule {}
