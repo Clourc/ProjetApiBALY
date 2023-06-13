@@ -1,4 +1,6 @@
 <div *ngFor="let game of similarGames" id="similar-games-list">
     <app-game-card [game]="game" (click)="reloadDetails()"></app-game-card>
 </div>
-<button (click)="showMoreGames()">More games</button>
+<div *ngIf="similarGames.length != gamesData.length">
+<button (click)="showMoreGames()" >More games</button>
+</div>

@@ -11,24 +11,23 @@ export class SimilarGamesComponent implements OnInit {
   constructor(private http: HttpClient) {}
   gamesData: any[] = [];
   maxNbShownGames: number = 10;
-  @Input() gameCategory: string = '';
+  @Input() gameGenre: string = '';
   @Input() gameId!: number;
-  
+
   similarGames: any[] = [];
-  
 
   ngOnInit() {
-    if (this.gameCategory === 'MMOARPG') {
-      this.gameCategory = 'MMORPG';
+    if (this.gameGenre === 'MMOARPG') {
+      this.gameGenre = 'MMORPG';
     }
-    if(this.gameCategory === 'ARPG'){
-      this.gameCategory = 'action-rpg';
+    if (this.gameGenre === 'ARPG') {
+      this.gameGenre = 'action-rpg';
     }
-    if(this.gameCategory === 'Action RPG') {
-      this.gameCategory = 'action-rpg';
+    if (this.gameGenre === 'Action RPG') {
+      this.gameGenre = 'action-rpg';
     }
-    
-    callAPI(this.http, `games?category=${this.gameCategory}`).subscribe(
+
+    callAPI(this.http, `games?category=${this.gameGenre}`).subscribe(
       (data) => {
         this.gamesData = data;
         for (let i = 0; i < this.maxNbShownGames; i++) {
@@ -42,15 +41,18 @@ export class SimilarGamesComponent implements OnInit {
   showMoreGames() {
     this.maxNbShownGames += 10;
     for (let i = this.maxNbShownGames; i < this.maxNbShownGames + 10; i++) {
-      this.similarGames.push(this.gamesData[i]);
+      if (this.gamesData[i] != undefined) {
+        this.similarGames.push(this.gamesData[i]);
+      }
     }
+    console.table(this.gamesData);
   }
 
-  reloadDetails(){
+  reloadDetails() {
     location.reload();
   }
 
-  removeCurrentGame(array: any[]){
+  removeCurrentGame(array: any[]) {
     array.splice(
       array.findIndex((x) => x.id === this.gameId),
       1
