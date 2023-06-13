@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GameListComponent } from './game-list/game-list.component';
 import { DetailComponent } from './detail/detail.component';
+import { HeaderComponent } from './header/header.component';
+import { CardFavComponent } from './card-fav/card-fav.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'mentions', component: MentionsComponent},
   { path: 'random', component: RandomComponent}
+
 ];
 
 @NgModule({
