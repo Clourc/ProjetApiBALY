@@ -24,6 +24,10 @@ export class SimilarGamesComponent implements OnInit {
     if(this.gameCategory === 'ARPG'){
       this.gameCategory = 'action-rpg';
     }
+    if(this.gameCategory === 'Action RPG') {
+      this.gameCategory = 'action-rpg';
+    }
+    
     callAPI(this.http, `games?category=${this.gameCategory}`).subscribe(
       (data) => {
         this.gamesData = data;
