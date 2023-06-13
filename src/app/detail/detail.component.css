@@ -2,6 +2,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 h1 {
   text-align: center;
 }
@@ -22,7 +23,6 @@ li {
   list-style: none;
 }
 
-
 button {
   width: 100px;
   height: 40px;
@@ -32,16 +32,15 @@ button {
   margin: 20px;
 }
 
-#screenshot{
-    display: flex;
-    flex-direction: column;
+#screenshot {
+  display: flex;
+  flex-direction: column;
 }
 
-#sysReq{
-    display: flex;
-    flex-direction: column;
-    padding-left: 0px;
-
+#sysReq {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
 }
 
 @media screen and (min-width: 768px) {
@@ -89,7 +88,7 @@ button {
     flex-wrap: wrap;
     width: 100%;
   }
-.screenshot{
+  .screenshot {
     width: 400px;
-}
+  }
 }

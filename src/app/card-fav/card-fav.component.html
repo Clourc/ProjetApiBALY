@@ -1,0 +1,13 @@
+<div id="card-fav">
+  <h1>Nos recommandations<i class="fa fa-star" aria-hidden="true"></i></h1>
+  <ul>
+    <li *ngFor="let game of gameFav">
+      <a [routerLink]="'game/'+ this.game.id ">
+        <div (click)="selectClick(game.id)"></div>
+        <h2>{{ game.title }}</h2>
+        <img class="image-card" [src]="game.thumbnail" alt="{{ game.title }} thumbnail">
+        <p>{{ game.short_description }}</p>
+      </a>
+    </li>
+  </ul>
+</div>

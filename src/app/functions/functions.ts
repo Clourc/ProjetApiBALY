@@ -4,7 +4,3 @@ export const getMaxId = (array: any[]): number => {
     })
     )
   }
-
-/*   export function getRandomGame(getMaxId:any){
-    return (Math.random()*(getMaxId-1))+1;
-} */
