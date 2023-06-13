@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
   <div class="thumbCol">
     <div id="fixedThumb">
       <h1>{{ this.gameDetails.title }}</h1>
@@ -38,7 +38,9 @@
 
       <li>Memory :{{ this.gameDetails.minimum_system_requirements.memory }}</li>
 
-      <li>platform :{{ this.gameDetails.minimum_system_requirements.platform }}</li>
+      <li>
+        platform :{{ this.gameDetails.minimum_system_requirements.platform }}
+      </li>
 
       <li>
         Processor :{{ this.gameDetails.minimum_system_requirements.processor }}
@@ -53,8 +55,20 @@
     <p>Release date:{{ this.gameDetails.release_date }}</p>
     <div id="screenshots">
       <div class="screenshot" *ngFor="let screenshot of screenshotArray">
-       <a  [href]="this.screenshot.image" target="blank" > <img [src]="this.screenshot.image" alt="screenshot"/></a> 
+        <img
+          (click)="isOpen = !isOpen; getOverlayImage(this.screenshot.image)"
+          [src]="this.screenshot.image"
+          alt="screenshot"
+        />
       </div>
+      <ng-template
+        cdkConnectedOverlay
+        [cdkConnecterOverlayOrigin]="triggerOrigin"
+        [cdkConnectedOverlayOpen]="isOpen"
+        (overlayOutsideClick)="isOpen = false"
+      >
+        <img [src]="this.overlayImageLink" (click)="isOpen = false"/>
+      </ng-template>
     </div>
   </div>
 </div>

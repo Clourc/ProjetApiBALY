@@ -1,3 +1,16 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
+.cdk-overlay-connected-position-bounding-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.cdk-overlay-pane {
+    transform: rotate(90deg)
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -15,4 +28,10 @@ button {
 button:hover {
     background-color: aquamarine;
     color: black
+}
+
+@media screen and (min-width: 768px){
+    .cdk-overlay-pane{
+        transform: rotate(0deg);
+    }
 }
