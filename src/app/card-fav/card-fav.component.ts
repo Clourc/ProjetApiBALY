@@ -25,9 +25,4 @@ export class CardFavComponent implements OnInit {
     }
     console.log(this.gameFav);
   }
-
-  selectClick(gameId: number): void {
-   
-    this.router.navigate(['game', gameId]);
-  }
 }
