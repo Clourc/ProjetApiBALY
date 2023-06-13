@@ -1,2 +1,9 @@
-<p>random works!</p>
-<button type="button" (click)="getRandomGame(this.maxId); sortGameIds(this.gameList)">random game ?</button>
+<div>
+  <a [routerLink]="'/game/' + randomGame.id">
+    <img [src]="randomThumbnail" id="randomGame" /> </a
+  ><br />
+
+  <button type="button" (click)="displayRandomThumbnail()">
+    random game ?
+  </button>
+</div>
