@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { RandomComponent } from './random/random.component';
+import { SimilarGamesComponent } from './similar-games/similar-games.component';
 
 
 
@@ -31,7 +32,8 @@ import { RandomComponent } from './random/random.component';
     MentionsComponent,
     RandomComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    SimilarGamesComponent
 
   ],
   imports: [
