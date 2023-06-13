@@ -1,5 +1,5 @@
 <div>
-  <a [routerLink]="'/game/' + randomGame.id">
+  <a *ngIf="randomGame" [routerLink]="'/game/' + randomGame.id">
     <img [src]="randomThumbnail" id="randomGame" /> </a
   ><br />
 

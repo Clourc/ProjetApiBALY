@@ -14,7 +14,7 @@ export class RandomComponent {
   gameList: any[] = [];
   maxId!: number;
   randomGame: any;
-  randomThumbnail: string = '';
+  randomThumbnail: string = '../assets/placeholder/JackBlackBowser.png';
 
   ngOnInit() {
     callAPI(this.http, 'games').subscribe((data) => {
@@ -61,6 +61,6 @@ export class RandomComponent {
     setTimeout(() => {
       this.randomThumbnail = array[i].thumbnail;
       console.log(this.randomThumbnail);
-    }, 300 * i);
+    }, 150 * i);
   }
 }
