@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class GameCardComponent {
   @Input() game: any;
 
-
   winIcon: string = '/assets/placeholder/windows-icon.png';
   browserIcon: string = '/assets/placeholder/browser-game-icon.png';
+
 }

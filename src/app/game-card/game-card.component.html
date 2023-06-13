@@ -1,5 +1,5 @@
-<a [routerLink]="'game/' + this.game.id"
-  ><div id="game-card">
+<a [routerLink]="['/game/', this.game.id]">
+  <div id="game-card">
     <img [src]="this.game.thumbnail" id="game-thumbnail" />
     <div class="game-card-info">
       <strong id="game-name">{{ this.game.title }}</strong>

@@ -15,10 +15,11 @@ export class DetailComponent implements OnInit {
   gameDetails: any;
   isOpen: boolean = false;
   overlayImageLink: string = '';
+  gameID: string | undefined = '';
 
   ngOnInit(): void {
-    const gameID = this.router.url.split('/').pop()
-    callAPI(this.http, `game?id=${gameID}`).subscribe((data) => {
+    this.gameID = this.router.url.split('/').pop()
+    callAPI(this.http, `game?id=${this.gameID}`).subscribe((data) => {
       this.gameDetails = data;
       console.log(this.gameDetails)
       for (let i = 0; i < this.gameDetails.screenshots.length; i++) {
@@ -26,10 +27,9 @@ export class DetailComponent implements OnInit {
       }
     });
   }
-
+  
   getOverlayImage(screenshot: string){
     this.overlayImageLink = screenshot;
     console.log(this.overlayImageLink);
   }
-
 }
