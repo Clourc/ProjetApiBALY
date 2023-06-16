@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { callAPI } from '../api-config/config';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-similar-games',
@@ -8,7 +9,7 @@ import { callAPI } from '../api-config/config';
   styleUrls: ['./similar-games.component.css'],
 })
 export class SimilarGamesComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private gamesService: GamesService) {}
   gamesData: any[] = [];
   maxNbShownGames: number = 10;
   @Input() gameGenre: string = '';
@@ -39,13 +40,7 @@ export class SimilarGamesComponent implements OnInit {
   }
 
   showMoreGames() {
-    this.maxNbShownGames += 10;
-    for (let i = this.maxNbShownGames; i < this.maxNbShownGames + 10; i++) {
-      if (this.gamesData[i] != undefined) {
-        this.similarGames.push(this.gamesData[i]);
-      }
-    }
-    console.table(this.gamesData);
+  return this.gamesService.showMoreGames(this.maxNbShownGames, this.similarGames, this.gamesData )
   }
 
   reloadDetails() {
