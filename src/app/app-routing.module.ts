@@ -7,6 +7,7 @@ import { MentionsComponent } from './mentions/mentions.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { RandomComponent } from './random/random.component';
+import { CguComponent } from './cgu/cgu.component';
 
 
 const routes: Routes = [
@@ -17,9 +18,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'mentions', component: MentionsComponent},
   { path: 'random', component: RandomComponent},
+  { path: 'cgu', component: CguComponent},
   { path: '', redirectTo: 'games', pathMatch: 'full'},
-/*   { path: '**', component: GameListComponent}
- */
+
 ];
 
 @NgModule({
