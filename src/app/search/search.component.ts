@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements OnInit{
+export class SearchComponent implements OnInit {
   constructor(private http: HttpClient, private fb: FormBuilder) {}
   searchTerm: string = '';
   selectPlat: string = '';
@@ -16,9 +16,9 @@ export class SearchComponent implements OnInit{
   games: any[] = [];
 
   public isMobileLayout = false;
-  
+
   ngOnInit() {
-    this.isMobileLayout = window.innerWidth <= 768
+    this.isMobileLayout = window.innerWidth <= 768;
     window.onresize = () => (this.isMobileLayout = window.innerWidth <= 768);
   }
 
@@ -30,55 +30,56 @@ export class SearchComponent implements OnInit{
     'relevance',
   ];
 
-  catArray: string[] = [
-    'mmorpg',
-    'shooter',
-    'strategy',
-    'moba',
-    'racing',
-    'sports',
-    'social',
-    'sandbox',
-    'openWorld',
-    'survival',
-    'pvp',
-    'pve',
-    'pixel',
-    'voxel',
-    'zombie',
-    'turnBased',
-    'firstPerson',
-    'thirdPerson',
-    'topDown',
-    'tank',
-    'space',
-    'sailing',
-    'sideScroller',
-    'superhero',
-    'permadeath',
-    'card',
-    'battleRoyale',
-    'mmo',
-    'mmofps',
-    'mmotps',
-    'threeD',
-    'twoD',
-    'anime',
-    'fantasy',
-    'sciFi',
-    'fighting',
-    'actionRpg',
-    'action',
-    'martialArts',
-    'flight',
-    'lowSpec',
-    'towerDefense',
-    'horror',
-    'mmorts'
+  catArray: any[] = [
+    { formC: 'mmorpg', query: 'mmorpg' },
+    { formC: 'shooter', query: 'shooter' },
+    { formC: 'strategy', query: 'strategy' },
+    { formC: 'moba', query: 'moba' },
+    { formC: 'racing', query: 'racing' },
+    { formC: 'sports', query: 'sports' },
+    { formC: 'social', query: 'social' },
+    { formC: 'sandbox', query: 'sandbox' },
+    { formC: 'openWorld', query: 'open-world' },
+    { formC: 'survival', query: 'survival' },
+    { formC: 'pvp', query: 'pvp' },
+    { formC: 'pve', query: 'pve' },
+    { formC: 'pixel', query: 'pixel' },
+    { formC: 'voxel', query: 'voxel' },
+    { formC: 'zombie', query: 'zombie' },
+    { formC: 'turnBased', query: 'turn-based' },
+    { formC: 'firstPerson', query: 'first-person' },
+    { formC: 'thirdPerson', query: 'third-Person' },
+    { formC: 'topDown', query: 'top-down' },
+    { formC: 'tank', query: 'tank' },
+    { formC: 'space', query: 'space' },
+    { formC: 'sailing', query: 'sailing' },
+    { formC: 'sideScroller', query: 'side-scroller' },
+    { formC: 'superhero', query: 'superhero' },
+    { formC: 'permadeath', query: 'permadeath' },
+    { formC: 'card', query: 'card' },
+    { formC: 'battleRoyale', query: 'battle-royale' },
+    { formC: 'mmo', query: 'mmo' },
+    { formC: 'mmofps', query: 'mmofps' },
+    { formC: 'mmotps', query: 'mmotps' },
+    { formC: 'threeD', query: '3d' },
+    { formC: 'twoD', query: '2d' },
+    { formC: 'anime', query: 'anime' },
+    { formC: 'fantasy', query: 'fantasy' },
+    { formC: 'sciFi', query: 'sci-fi' },
+    { formC: 'fighting', query: 'fighting' },
+    { formC: 'actionRpg', query: 'action-rpg' },
+    { formC: 'action', query: 'action' },
+    { formC: 'military', query: 'military' },
+    { formC: 'martialArts', query: 'martial-arts' },
+    { formC: 'flight', query: 'flight' },
+    { formC: 'lowSpec', query: 'low-spec' },
+    { formC: 'towerDefense', query: 'tower-defense' },
+    { formC: 'horror', query: 'horror' },
+    { formC: 'mmorts', query: 'mmorts' },
   ];
 
   mobileForm = this.fb.group({
-    category: this.catArray[0]
+    category: this.catArray[0],
   });
 
   checkBoxForm = this.fb.group({
@@ -120,6 +121,7 @@ export class SearchComponent implements OnInit{
     fighting: [false],
     actionRpg: [false],
     action: [false],
+    military: [false],
     martialArts: [false],
     flight: [false],
     lowSpec: [false],
@@ -128,43 +130,52 @@ export class SearchComponent implements OnInit{
     mmorts: [false],
   });
 
-  search(): void {
-    if (this.selectPlat && this.sortGame) {
-      callAPI(
-        this.http,
-        'games?platform=' + this.selectPlat + '&sort-by=' + this.sortGame
-      ).subscribe((data) => {
-        console.log('API response:', data);
-        this.games = data;
-      });
-    } else if (this.sortGame) {
-      callAPI(this.http, 'games?sort-by=' + this.sortGame).subscribe((data) => {
-        console.log('API platform', data);
-        this.games = data;
-      });
-    } else if (this.selectPlat) {
-      console.log('Search term:', this.selectPlat);
+  search(selectedCategories: any | any[]): void {
+    let endpoint = selectedCategories.length > 1 ? 'filter' : 'games';
+    const queryParams: string[] = [];
 
-      callAPI(this.http, 'games?platform=' + this.selectPlat).subscribe(
-        (data) => {
-          console.log('API response:', data);
-          this.games = data;
-        }
-      );
-    } else {
-      this.games = [];
+    if (selectedCategories.length > 0) {
+      const categoryParam = selectedCategories
+        .map((category: any) => category.query)
+        .join('.');
+
+      if (selectedCategories.length > 1) {
+        queryParams.push(`tag=${categoryParam}`);
+      } else {
+        queryParams.push(`category=${categoryParam}`);
+      }
     }
-  }
 
-  onMobileSubmit(){
-    console.table(this.mobileForm.value);
-    return this.search();
-  }
+    if (this.sortGame) {
+      queryParams.push(`sort-by=${this.sortGame}`);
+    }
 
-  onDesktopSubmit(){
-    console.table(this.checkBoxForm.value)
-    return this.search();
+    if (this.selectPlat) {
+      queryParams.push(`platform=${this.selectPlat}`);
+    }
+
+    if (queryParams.length > 0) {
+      endpoint += `?${queryParams.join('&')}`;
+    }
+
+    callAPI(this.http, endpoint).subscribe((data) => {
+      console.log(endpoint);
+      console.log('API response:', data);
+      this.games = data;
+    });
+  }
+  onDesktopSubmit() {
+    const selectedCategories = this.catArray.filter(
+      (category) => this.checkBoxForm.get(category.formC)?.value
+    );
+
+    console.table(this.checkBoxForm.value);
+    return this.search(selectedCategories);
+  }
+  onMobileSubmit() {
+    const selectedCategory = [this.mobileForm.value.category];
+
+    console.log(selectedCategory);
+    return this.search(selectedCategory);
   }
 }
-
-

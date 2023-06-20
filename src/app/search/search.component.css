@@ -13,6 +13,9 @@ app-game-card {
 select {
   display: flex;
   align-items: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 30%;
 }
 
 h1,
@@ -22,13 +25,8 @@ h2 {
   text-align: center;
 }
 
-select {
-  width: 30%;
-  margin: 1em;
-}
-
-.mobile-cats{
-  width: 100%
+.mobile-cats {
+  width: 100%;
 }
 
 option {
@@ -58,7 +56,29 @@ option {
 
     grid-gap: 3em;
     width: 100%;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+  #deskBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #deskBox > button {
+    margin-top: 2em;
+  }
+  #test {
+    border: 1px solid black;
+    border-radius: 2%;
+    background-color: gray;
+    width: 100%;
+    margin: auto;
+    padding-left: 3em;
+    padding-right: 3em;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
   }
 }

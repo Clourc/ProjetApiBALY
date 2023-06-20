@@ -6,20 +6,25 @@
   </select>
 
   <select [(ngModel)]="sortGame" name="Sort" id="sort">
-    <option></option>
     <option *ngFor="let element of sortArray">{{ element }}</option>
   </select>
-
-  <!--   HTML to display the checkbox on desk and mobile -->
-  <form (ngSubmit)="onMobileSubmit()" *ngIf="isMobileLayout" [formGroup]="mobileForm" #mobile_Form="ngForm">
+  
+  <form
+    (ngSubmit)="onMobileSubmit()"
+    *ngIf="isMobileLayout"
+    [formGroup]="mobileForm"
+    #mobile_Form="ngForm"
+  >
     <select
       name="category"
       id="categoryMobile"
       class="mobile-cats"
       formControlName="category"
     >
-      <option></option>
-      <option *ngFor="let category of catArray" [ngValue]="category">{{ category }}</option>
+      <option>All</option>
+      <option *ngFor="let category of catArray" [ngValue]="category">
+        {{ category.query }}
+      </option>
     </select>
     <button type="submit">SearchTest</button>
   </form>
@@ -31,15 +36,13 @@
     [formGroup]="checkBoxForm"
     #desktopBoxForm="ngForm"
   >
-    <div *ngIf="!isMobileLayout">
-      <div *ngFor="let element of catArray">
-        <input
+    <div *ngIf="!isMobileLayout" id="test" >
+      <div *ngFor="let category of catArray">
+        <input 
           type="checkbox"
-          [name]="this.element"
-          [id]="this.element"
-          [formControlName]="this.element"
-        />
-        <label [for]="this.element">{{ this.element }}</label>
+          [id]="category"
+          [formControlName]="category.formC"/>
+        <label [for]="category.formC">{{ category.query }}</label>
       </div>
     </div>
     <button type="submit">go</button>
