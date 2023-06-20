@@ -1,6 +1,4 @@
-
 app-game-card {
- 
   width: 75%;
   border: solid 1px black;
   border-radius: 0 0 10px 10px;
@@ -10,75 +8,77 @@ app-game-card {
   justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
-  }
-  
-
-
-   select{
-    display: flex;
-    align-items: center;
-
-  }
-
-  
-  h1,h2 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-select{
-  width: 30%;
-  margin: 1em;
 }
 
-  option{
-    text-align: center;
-    
-  }
+select {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 30%;
+}
 
+h1,
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
 
+.mobile-cats {
+  width: 100%;
+}
 
-#naviagtionElements{
+option {
+  text-align: center;
+}
+
+#naviagtionElements {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-  
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  app-game-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 
+  app-game-card {
+    width: 100%;
+    border-radius: 0 10px 10px 0;
+  }
 
-    app-game-card:hover {
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-  
-    app-game-card {
-      width: 100%;
-      border-radius: 0 10px 10px 0;
-     
+  .gameCardStyle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-    
-    }
+    grid-gap: 3em;
+    width: 100%;
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+  #deskBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-    
-.gameCardStyle{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  
- 
+  #deskBox > button {
+    margin-top: 2em;
+  }
+  #test {
+    border: 1px solid black;
+    border-radius: 2%;
+    background-color: gray;
+    width: 100%;
+    margin: auto;
+    padding-left: 3em;
+    padding-right: 3em;
 
-  grid-gap: 3em;
-  width: 100%;
-  padding-left: 2em;
-  padding-right: 2em;
-  
-
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+  }
 }
-
-
-
-}
-  
-  
