@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MentionsComponent } from './mentions/mentions.component';
 import { RandomComponent } from './random/random.component';
 import { SimilarGamesComponent } from './similar-games/similar-games.component';
+import { CguComponent } from './cgu/cgu.component';
 
 
 
@@ -36,7 +37,8 @@ import { SimilarGamesComponent } from './similar-games/similar-games.component';
     RandomComponent,
     LoginComponent,
     SignupComponent,
-    SimilarGamesComponent
+    SimilarGamesComponent,
+    CguComponent
   ],
   imports: [
     BrowserModule,
