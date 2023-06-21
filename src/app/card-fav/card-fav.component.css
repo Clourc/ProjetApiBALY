@@ -4,14 +4,22 @@
   justify-content: center;
   padding: 0;
   margin: 0;
+  
 }
 
 .fa-star{
   text-shadow: #e6f35b 1px 0 10px;;
 }
 
+p{
+  background-color: #354F52;
+  color: #CAD2C5;
+}
 
-
+h2{
+  background-color: #354F52;
+  color:#CAD2C5;
+}
 
 .image-card {
   display: block;
@@ -26,6 +34,7 @@
 a{
   text-decoration: none;
   color: black;
+  background-color: #354F52;
 }
 
 
@@ -44,9 +53,10 @@ ul {
   width: 40%;
   margin: 25px;
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color: #354F52;
   box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+ 
 }
 
 h1 {
@@ -54,6 +64,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 20px;
+  color: #CAD2C5;
 }
 
 #card-fav li h2 {
@@ -86,7 +97,7 @@ li:hover{
 #card-fav li p {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 11px;
-  color: black;
+  color: #CAD2C5;
   text-align: center;
   margin-bottom: 10px;
   width: 480px;
