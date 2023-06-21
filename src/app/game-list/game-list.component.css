@@ -1,3 +1,7 @@
+.list{
+  padding-bottom: 5vh;
+}
+
 app-game-card {
   width: 75%;
   border: solid 1px black;
@@ -15,10 +19,54 @@ h1 {
   margin-bottom: 2rem;
 }
 
-button {
+/* button {
   display: block;
   margin: auto;
+} */
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+ 
 }
+
+
+
+button {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+	background-color:#eae0c2;
+	border-radius:15px;
+	/* border:2px solid #333029; */
+	display:block;
+  /* 
+  transform: translate(-50%, -50%); */
+  
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+  /* position: absolute; */
+  /* left: 45%; */
+margin: auto;
+margin-bottom: 5vh;
+	font-size:14px;
+	font-weight:bold;
+	/* padding:12px 16px; */
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+button:hover {
+	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+	background-color:#ccc2a6;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
 
 @media screen and (min-width: 768px) {
   app-game-card:hover {
