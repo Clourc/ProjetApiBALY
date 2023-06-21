@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { callAPI } from '../api-config/config';
 import { GamesService } from '../games.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-similar-games',
@@ -9,7 +10,11 @@ import { GamesService } from '../games.service';
   styleUrls: ['./similar-games.component.css'],
 })
 export class SimilarGamesComponent implements OnInit {
-  constructor(private http: HttpClient, private gamesService: GamesService) {}
+  constructor(
+    private http: HttpClient,
+    private gamesService: GamesService,
+    private router: Router
+  ) {}
   gamesData: any[] = [];
   maxNbShownGames: number = 10;
   @Input() gameGenre: string = '';
@@ -28,23 +33,27 @@ export class SimilarGamesComponent implements OnInit {
       this.gameGenre = 'action-rpg';
     }
 
-    callAPI(this.http, `games?category=${this.gameGenre}`).subscribe(
-      (data) => {
-        this.gamesData = data;
-        for (let i = 0; i < this.maxNbShownGames; i++) {
-          this.similarGames.push(this.gamesData[i]);
-        }
-        this.removeCurrentGame(this.similarGames);
+    callAPI(this.http, `games?category=${this.gameGenre}`).subscribe((data) => {
+      this.gamesData = data;
+      for (let i = 0; i < this.maxNbShownGames; i++) {
+        this.similarGames.push(this.gamesData[i]);
       }
-    );
+      this.removeCurrentGame(this.similarGames);
+    });
   }
 
   showMoreGames() {
-  return this.gamesService.showMoreGames(this.maxNbShownGames, this.similarGames, this.gamesData )
+    return this.gamesService.showMoreGames(
+      this.maxNbShownGames,
+      this.similarGames,
+      this.gamesData
+    );
   }
 
-  reloadDetails() {
-    location.reload();
+  reloadDetails(gameId: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/game/' + gameId]);
+    });
   }
 
   removeCurrentGame(array: any[]) {

@@ -1,0 +1,17 @@
+<div id="profile">
+  <div id="profile-details">
+    <div id="profile-picture">
+      <img [src]="user.profilePicture" /><span id="edit-profile-picture"
+        >Edit profile picture</span
+      >
+    </div>
+    <h2>Bonjour {{ user.id }} !</h2>
+  </div>
+  <!--  Avatar, id... -->
+  <div id="favorite-games">
+    <div *ngFor="let game of favoriteGames"><img [src]="game.thumbnail" /></div>
+  </div>
+  <!-- Jeux favoris -->
+  <div id="profile-options"></div>
+  <!-- Logout, change userId.. -->
+</div>

@@ -14,8 +14,8 @@
       
       <li><a routerLink="/search"><i class="fa fa-search"></i></a></li>
       
-      <li><a routerLink="/login">Connexion</a></li>
-
+      <li ><a routerLink="/login">Connexion</a></li><!-- *ngIf="showLoginButton; else showProfileButton" -->
+      <li><a routerLink="/user">Mon Profil</a></li><!-- <ng-template #showProfileButton></ng-template> -->
     </ul>
   </nav>
 </header>

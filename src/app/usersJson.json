@@ -1,4 +1,6 @@
 {
     "id": "Lucas",
-    "password": "CoucouLucas"
+    "password": "CoucouLucas",
+    "profilePicture": "../assets/placeholder/JackBlackBowser.png",
+    "favoriteGamesIds": [1, 450]
 }
