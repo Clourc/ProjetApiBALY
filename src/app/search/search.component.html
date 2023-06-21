@@ -1,52 +1,62 @@
 <h1>Find your game!</h1>
 
-
 <div id="naviagtionElements">
-<select [(ngModel)]="selectPlat" name="Plateform" id="platSelect">
-  <option *ngFor="let element of searchArray">{{ element }}</option>
-</select>
+  <select [(ngModel)]="selectPlat" name="Plateform" id="platSelect">
+    <option *ngFor="let element of searchArray">{{ element }}</option>
+  </select>
 
- 
-
-<select [(ngModel)]="sortGame" name="Sort" id="sort">
-  <option></option>
-  <option *ngFor="let element of sortArray">{{ element }}</option>
-</select>
-
-<!-- HTML to display the checkbox on desk and mobile
-<select
-  *ngIf="isMobileLayout"
-  [(ngModel)]="searchTerm"
-  name="category"
-  id="categoryMobile"
-  multiple
->
-  <option></option>
-  <option *ngFor="let element of catArray">{{ element }}</option>
-</select>
-
-<div *ngIf="!isMobileLayout" id="deskBox" [formGroup]="checkBoxForm" >
-  <form *ngFor="let element of catArray">
-    <input type="checkbox" name="category" [id]="this.element" />
-    <label>{{ this.element }}</label>
+  <select [(ngModel)]="sortGame" name="Sort" id="sort">
+    <option *ngFor="let element of sortArray">{{ element }}</option>
+  </select>
+  
+  <form
+    (ngSubmit)="onMobileSubmit()"
+    *ngIf="isMobileLayout"
+    [formGroup]="mobileForm"
+    #mobile_Form="ngForm"
+  >
+    <select
+      name="category"
+      id="categoryMobile"
+      class="mobile-cats"
+      formControlName="category"
+    >
+      <option>All</option>
+      <option *ngFor="let category of catArray" [ngValue]="category">
+        {{ category.query }}
+      </option>
+    </select>
+    <button type="submit">SearchTest</button>
   </form>
-</div> -->
 
-<button (click)="search()">go</button>
+  <form
+    (ngSubmit)="onDesktopSubmit()"
+    *ngIf="!isMobileLayout"
+    id="deskBox"
+    [formGroup]="checkBoxForm"
+    #desktopBoxForm="ngForm"
+  >
+    <div *ngIf="!isMobileLayout" id="test" >
+      <div *ngFor="let category of catArray">
+        <input 
+          type="checkbox"
+          [id]="category"
+          [formControlName]="category.formC"/>
+        <label [for]="category.formC">{{ category.query }}</label>
+      </div>
+    </div>
+    <button type="submit">go</button>
+  </form>
 </div>
 <h2>Search Results</h2>
 
 <div>
-
-  
-  <div *ngIf="games && games.length > 0">
-    
-  </div>
+  <div *ngIf="games && games.length > 0"></div>
 
   <label for="category"></label>
-<div class="gameCardStyle">
-  <div  *ngFor="let game of games">
-    <app-game-card [game]="game"></app-game-card>
+  <div class="gameCardStyle">
+    <div *ngFor="let game of games">
+      <app-game-card [game]="game"></app-game-card>
+    </div>
   </div>
-</div>
 </div>

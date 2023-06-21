@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { callAPI } from '../api-config/config';
-import { getMaxId } from '../functions/functions';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-random',
@@ -10,7 +9,7 @@ import { getMaxId } from '../functions/functions';
   styleUrls: ['./random.component.css'],
 })
 export class RandomComponent {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private gamesService: GamesService) {}
   gameList: any[] = [];
   maxId!: number;
   randomGame: any;
@@ -18,7 +17,7 @@ export class RandomComponent {
 
   ngOnInit() {
     callAPI(this.http, 'games').subscribe((data) => {
-      this.maxId = getMaxId(data);
+      this.maxId = this.gamesService.getMaxId(data);
       this.gameList = data;
       console.log(this.gameList);
     });

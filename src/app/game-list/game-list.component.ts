@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { callAPI } from '../api-config/config';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-game-list',
@@ -8,7 +9,7 @@ import { callAPI } from '../api-config/config';
   styleUrls: ['./game-list.component.css'],
 })
 export class GameListComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private gamesService: GamesService) { }
   gamesToDisplay: any[] = [];
   maxNbShownGames: number = 10;
   savedData: any;
@@ -28,10 +29,7 @@ export class GameListComponent implements OnInit {
   }
 
   showMoreGames() {
-    this.maxNbShownGames += 10;
-    for (let i = this.maxNbShownGames; i < this.maxNbShownGames + 10; i++) {
-      this.gamesToDisplay.push(this.savedData[i]);
+    return this.gamesService.showMoreGames(this.maxNbShownGames, this.gamesToDisplay, this.savedData )
     }
-  }
 }
 

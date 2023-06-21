@@ -20,6 +20,9 @@ import { MentionsComponent } from './mentions/mentions.component';
 import { RandomComponent } from './random/random.component';
 import { SimilarGamesComponent } from './similar-games/similar-games.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CguComponent } from './cgu/cgu.component';
+import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
+
 
 
 
@@ -38,7 +41,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoginComponent,
     SignupComponent,
     SimilarGamesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CguComponent,
+    CookiesConsentComponent
   ],
   imports: [
     BrowserModule,
