@@ -30,9 +30,26 @@
     grid-area: 1 / 2 / 2 / 3;
     background-color: blue;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
+
+#favourite-game {
+    max-width: 35%;
+}
+
 #profile-options {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-left: 50px;
     background-color: green;
+}
+
+#profile-options .option {
+    margin-bottom: 0.5rem;
+}
+
+::placeholder {
+    color: #cad2c5b7;
 }

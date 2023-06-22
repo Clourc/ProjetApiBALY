@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, delay, tap } from 'rxjs'
-import userJson from './usersJson.json';
+import { GamesService } from './games.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,20 @@ import userJson from './usersJson.json';
 
 export class LoginService {
   isLoggedIn: boolean = false;
+  user = this.gamesService.user
+
+  constructor(private gamesService: GamesService, private router: Router){}
 
   login(name: string, password: string): Observable<boolean> {
-    const isLoggedIn = name == userJson.id && password == userJson.password;
+    const isLoggedIn = name == this.user.id && password == this.user.password;
     return of(isLoggedIn).pipe(
       delay(1000),
       tap((isLoggedIn) => (this.isLoggedIn = isLoggedIn))
     );
+  }
+
+  logout(){
+    this.isLoggedIn = false;
+    this.router.navigate(['/']);
   }
 }
