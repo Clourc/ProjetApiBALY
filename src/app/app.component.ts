@@ -12,9 +12,5 @@ export class AppComponent {
   isLoggedIn: boolean = this.loginService.isLoggedIn;
   constructor(private loginService: LoginService){}
 
-  setLoginStatus(isLoggedIn: boolean){
-    this.isLoggedIn = isLoggedIn;
-  }
-
 }
 

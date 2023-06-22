@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import usersJson from '../usersJson.json';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
+import usersJson from '../usersJson.json';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +12,6 @@ export class LoginComponent implements OnInit {
   userId: string = '';
   password: string = '';
   loginMessage: string = '';
-
-  @Output() loginOutput: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private loginService: LoginService, private router: Router) {}
 
@@ -28,7 +26,6 @@ export class LoginComponent implements OnInit {
       .login(this.userId, this.password)
       .subscribe((isLoggedIn: boolean) => {
         if (isLoggedIn) {
-          this.emitLogin(true);
           this.router.navigate(['/user']);
         } else {
           this.loginMessage = 'Identifiant ou Mot de passe incorrect'
@@ -37,8 +34,9 @@ export class LoginComponent implements OnInit {
         }
       });
   }
-
-  emitLogin(value: boolean){
-    this.loginOutput.emit(value)
-  }
 }
+
+
+
+
+
