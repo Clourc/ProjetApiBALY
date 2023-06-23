@@ -15,10 +15,10 @@ export class SearchComponent implements OnInit {
   sortGame: string = '';
   games: any[] = [];
   alphabetInput: string = '';
-  filteredGames: any[] = [];
+  showEmptySearchResult:boolean=false;
 
   public isMobileLayout = false;
-
+  
   ngOnInit() {
     this.isMobileLayout = window.innerWidth <= 768;
     window.onresize = () => (this.isMobileLayout = window.innerWidth <= 768);
@@ -135,7 +135,7 @@ export class SearchComponent implements OnInit {
   search(selectedCategories: any | any[]): void {
     let endpoint = selectedCategories.length > 1 ? 'filter' : 'games';
     const queryParams: string[] = [];
-
+       this.games = [];
     if (selectedCategories.length > 0) {
       const categoryParam = selectedCategories
         .map((category: any) => category.query)
@@ -162,22 +162,22 @@ export class SearchComponent implements OnInit {
 
     callAPI(this.http, endpoint).subscribe((data) => {
       this.games = data;
-
       this.filterGamesByAlphabet();
     });
   }
 
-  onDesktopSubmit() {
-    const selectedCategories = this.catArray.filter(
-      (category) => this.checkBoxForm.get(category.formC)?.value
-    );
 
+  onDesktopSubmit(){
+    const selectedCategories = this.catArray.filter(
+      (category) => this.checkBoxForm.get(category.formC)?.value);
+    
     console.table(this.checkBoxForm.value);
     return this.search(selectedCategories);
   }
+  
   onMobileSubmit() {
     const selectedCategory = [this.mobileForm.value.category];
-
+   
     console.log(selectedCategory);
     return this.search(selectedCategory);
   }
@@ -186,10 +186,11 @@ export class SearchComponent implements OnInit {
     let filtered = this.games.filter((game) => {
       return game.title
         .toLowerCase()
-        .includes(this.alphabetInput.toLowerCase());
-        
+        .includes(this.alphabetInput.toLowerCase());   
     });
     this.games = filtered;
     console.log('Filtered Games:', this.games);
   }
 }
+
+

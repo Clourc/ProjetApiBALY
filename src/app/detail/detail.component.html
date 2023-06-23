@@ -17,7 +17,11 @@
           </button>
         </li>
 
-        <li><button>⭐</button></li>
+        <li>
+          <button (click)="toggleFavGame()"><span *ngIf="this.userFavGames.includes(this.gameDetails.id); else empty_star">⭐</span></button>
+        </li>
+        <ng-template #empty_star><span>✰</span></ng-template>
+        
       </ul>
     </div>
   </div>
@@ -67,9 +71,12 @@
         [cdkConnectedOverlayOpen]="isOpen"
         (overlayOutsideClick)="isOpen = false"
       >
-        <img [src]="this.overlayImageLink" (click)="isOpen = false"/>
+        <img [src]="this.overlayImageLink" (click)="isOpen = false" />
       </ng-template>
     </div>
   </div>
 </div>
-<app-similar-games [gameGenre]="this.gameDetails.genre" [gameId]="this.gameDetails.id"></app-similar-games>
+<app-similar-games
+  [gameGenre]="this.gameDetails.genre"
+  [gameId]="this.gameDetails.id"
+></app-similar-games>

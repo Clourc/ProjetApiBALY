@@ -32,7 +32,7 @@
         {{ category.query }}
       </option>
     </select>
-    <button type="submit">SearchTest</button>
+    <button type="submit">go</button>
   </form>
 
   <form
@@ -42,19 +42,23 @@
     [formGroup]="checkBoxForm"
     #desktopBoxForm="ngForm"
   >
-    <div *ngIf="!isMobileLayout" id="test" >
-      <div *ngFor="let category of catArray">
-        <input 
-          type="checkbox"
-          [id]="category"
-          [formControlName]="category.formC"/>
-        <label [for]="category.formC">{{ category.query }}</label>
-      </div>
+  <div *ngIf="!isMobileLayout" id="test">
+    <div *ngFor="let category of catArray">
+      <input
+        type="checkbox"
+        [id]="category"
+        [formControlName]="category.formC"
+      />
+      <label [for]="category.formC">{{ category.query }}</label>
     </div>
-    <button type="submit">go</button>
-  </form>
-  
+
+  <button type="submit">go</button>
+  <div *ngIf="desktopBoxForm.submitted && !checkBoxForm.pristine && games.length === 0">
+    <h2>No game found!</h2>
+  </div>
+</form>
 </div>
+  
 <h2>Search Results</h2>
 
 
@@ -69,3 +73,5 @@
     </div>
   </div>
 </div>
+
+

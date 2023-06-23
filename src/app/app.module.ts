@@ -22,6 +22,7 @@ import { SimilarGamesComponent } from './similar-games/similar-games.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CguComponent } from './cgu/cgu.component';
 import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -43,7 +44,8 @@ import { CookiesConsentComponent } from './cookies-consent/cookies-consent.compo
     SimilarGamesComponent,
     PageNotFoundComponent,
     CguComponent,
-    CookiesConsentComponent
+    CookiesConsentComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
