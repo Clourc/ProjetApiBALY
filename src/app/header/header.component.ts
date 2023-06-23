@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
+import { UserService } from '../user.service';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,8 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean = this.loginService.isLoggedIn;
-  constructor(private loginService: LoginService, private router: Router) {}
+  isLoggedIn: boolean = this.userService.isLoggedIn;
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.router.events.subscribe((val) => {
@@ -21,6 +21,6 @@ export class HeaderComponent implements OnInit {
   }
 
   reloadHeader() {
-    this.isLoggedIn = this.loginService.isLoggedIn;
+    this.isLoggedIn = this.userService.isLoggedIn;
   }
 }

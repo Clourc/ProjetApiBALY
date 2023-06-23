@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { callAPI } from '../api-config/config';
 import { Router } from '@angular/router';
-import { GamesService } from '../games.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-detail',
@@ -13,7 +13,7 @@ export class DetailComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private gamesService: GamesService
+    private userService:UserService
   ) {}
   screenshotArray: any[] = [];
   gameDetails: any;
@@ -22,9 +22,12 @@ export class DetailComponent implements OnInit {
   isOpen: boolean = false;
   overlayImageLink: string = '';
 
-  userFavGames = this.gamesService.user.favoriteGamesIds;
+  userFavGames: number[] = [];
 
   ngOnInit(): void {
+    if(this.userService.user){
+      this.userFavGames = this.userService.user.favoriteGamesIds;
+    }
     this.gameID = this.router.url.split('/').pop();
     callAPI(this.http, `game?id=${this.gameID}`).subscribe((data) => {
       this.gameDetails = data;

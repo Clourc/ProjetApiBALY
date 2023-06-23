@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginService } from './login.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,8 @@ import { LoginService } from './login.service';
 export class AppComponent {
   title = 'ProjetApiBALY';
 
-  isLoggedIn: boolean = this.loginService.isLoggedIn;
-  constructor(private loginService: LoginService){}
+  isLoggedIn: boolean = this.userService.isLoggedIn;
+  constructor(private userService: UserService){}
 
 }
 
