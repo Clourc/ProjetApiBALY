@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import usersJson from '../usersJson.json';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +15,11 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(usersJson);
+    console.log(this.userService.users);
+  }
+
+  getUser(name: string){
+    return console.log(this.userService.getUser(name));
   }
 
   tryLogin(): void {

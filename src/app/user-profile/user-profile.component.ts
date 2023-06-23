@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { callAPI } from '../api-config/config';
 import { HttpClient } from '@angular/common/http';
-import { GamesService } from '../games.service';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../user.service';
+import { User, UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,13 +12,15 @@ import { UserService } from '../user.service';
 export class UserProfileComponent implements OnInit {
   constructor(
     private http: HttpClient,
-    private gamesService: GamesService,
     private userService: UserService
   ) {}
-  user = this.gamesService.user;
+  user: User = new User('Not found', 'password', '', [], '');
   favoriteGames: any[] = [];
 
   ngOnInit(): void {
+    if (this.userService.user) {
+      this.user = this.userService.user;
+    }
     this.userService.isLoggedIn = true;
     callAPI(this.http, 'games').subscribe((data) => {
       for (let favorite of this.user.favoriteGamesIds) {
@@ -33,7 +34,7 @@ export class UserProfileComponent implements OnInit {
     return this.userService.onSubmitId(Id_Form);
   }
 
-  onSubmitEmail(Email_Form: NgForm){
+  onSubmitEmail(Email_Form: NgForm) {
     return this.userService.onSubmitEmail(Email_Form);
   }
 

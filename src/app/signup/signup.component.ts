@@ -4,6 +4,7 @@ import {
   Validators
 } from '@angular/forms';
 import { passwordMatching } from '../formCustomValidators/customValidators';
+import { User, UserService } from '../user.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,7 @@ import { passwordMatching } from '../formCustomValidators/customValidators';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {}
 
   signupForm: any = this.fb.group({
     id: ['', [Validators.required, Validators.minLength(3)]],
@@ -31,7 +32,6 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    console.log('Signing up');
-    console.log(this.signupForm)
+    return this.userService.signUp(this.signupForm);
   }
 }
