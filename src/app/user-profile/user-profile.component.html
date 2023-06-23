@@ -4,7 +4,8 @@
       <!--  Avatar, id... -->
       <img [src]="user.profilePicture" />
     </div>
-    <h2>Bonjour {{ user.id }} !</h2>
+    <h1>Bonjour {{ user.id }} !</h1>
+    <p>{{ user.emailAddress }}</p>
   </div>
   <!-- Jeux favoris -->
   <div id="favorite-games">
@@ -32,6 +33,21 @@
       <button type="submit" [disabled]="!Id_Form.valid">Update</button>
     </form>
 
+    <form (ngSubmit)="Email_Form.valid && onSubmitEmail(Email_Form)" #Email_Form="ngForm">
+      <label for="userEmail-field">Change email address: </label>
+      <input
+        type="text"
+        name="userEmail"
+        id="userEmail-field"
+        [placeholder]="user.emailAddress"
+        #userEmail="ngModel"
+        ngModel
+        required
+        email
+      />
+      <button type="submit" [disabled]="!Email_Form.valid">Update</button>
+    </form>
+
     <form (ngSubmit)="onSubmitPassword(Password_Form)" #Password_Form="ngForm">
       <label for="userPassword-field">Change password: </label>
       <input
@@ -43,15 +59,30 @@
         minlength="8"
         required
       />
+      <label for="userPasswordCheck-field">Confirm password: </label>
+      <input
+        type="password"
+        name="userPasswordCheck"
+        id="userPasswordCheck-field"
+        #userPasswordCheck="ngModel"
+        ngModel
+        minlength="8"
+        required
+      />
       <button type="submit" [disabled]="!Password_Form.valid">Update</button>
     </form>
 
-    <form (ngSubmit)="onSubmitImg(Img_Form)" #Img_Form="ngForm">
+    <form
+      (ngSubmit)="Img_Form.valid && onSubmitImg(Img_Form)"
+      #Img_Form="ngForm"
+    >
       <label for="userImg-field">Change profile picture: </label>
       <input
         type="url"
+        pattern="https://.*"
         name="userImg"
         id="userImg-field"
+        placeholder="https://..."
         #userImg="ngModel"
         ngModel
         required
@@ -59,6 +90,8 @@
       <button type="submit" [disabled]="!Img_Form.valid">Update</button>
     </form>
 
-    <span class="option"><button type="button" (click)="logout()">Se déconnecter</button></span>
+    <span class="option"
+      ><button type="button" (click)="logout()">Se déconnecter</button></span
+    >
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import usersJson from '../usersJson.json';
 
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   loginMessage: string = '';
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     console.log(usersJson);
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   tryLogin(): void {
     console.log('Logging in');
     this.loginMessage = 'Connexion en cours...'
-    this.loginService
+    this.userService
       .login(this.userId, this.password)
       .subscribe((isLoggedIn: boolean) => {
         if (isLoggedIn) {

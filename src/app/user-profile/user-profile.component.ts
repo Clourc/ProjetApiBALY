@@ -3,44 +3,49 @@ import { callAPI } from '../api-config/config';
 import { HttpClient } from '@angular/common/http';
 import { GamesService } from '../games.service';
 import { NgForm } from '@angular/forms';
-import { LoginService } from '../login.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  styleUrls: ['./user-profile.component.css'],
 })
-export class UserProfileComponent implements OnInit{
-  constructor(private http: HttpClient, private gamesService: GamesService, private login: LoginService){}
+export class UserProfileComponent implements OnInit {
+  constructor(
+    private http: HttpClient,
+    private gamesService: GamesService,
+    private userService: UserService
+  ) {}
   user = this.gamesService.user;
   favoriteGames: any[] = [];
 
   ngOnInit(): void {
-    this.login.isLoggedIn = true;
-    callAPI(this.http, 'games').subscribe(data => {
-      for(let favorite of this.user.favoriteGamesIds){
-        this.favoriteGames.push((data.filter((game) => game.id == favorite))[0]);
+    this.userService.isLoggedIn = true;
+    callAPI(this.http, 'games').subscribe((data) => {
+      for (let favorite of this.user.favoriteGamesIds) {
+        this.favoriteGames.push(data.filter((game) => game.id == favorite)[0]);
       }
       console.table(this.favoriteGames);
     });
   }
 
-  onSubmitId(Id_Form: NgForm){
-    console.log(Id_Form.value)
-    this.user.id = Id_Form.value.userId;
+  onSubmitId(Id_Form: NgForm) {
+    return this.userService.onSubmitId(Id_Form);
   }
 
-  onSubmitPassword(Password_Form: NgForm){
-    console.log(Password_Form.value)
-    this.user.password = Password_Form.value.userPassword;
+  onSubmitEmail(Email_Form: NgForm){
+    return this.userService.onSubmitEmail(Email_Form);
   }
 
-  onSubmitImg(Img_Form: NgForm){
-    console.log(Img_Form.value)
-    this.user.profilePicture = Img_Form.value.userImg;
+  onSubmitPassword(Password_Form: NgForm) {
+    return this.userService.onSubmitPassword(Password_Form);
   }
 
-  logout(){
-    return this.login.logout();
+  onSubmitImg(Img_Form: NgForm) {
+    return this.userService.onSubmitImg(Img_Form);
+  }
+
+  logout() {
+    return this.userService.logout();
   }
 }
