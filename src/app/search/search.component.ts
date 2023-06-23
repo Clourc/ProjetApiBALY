@@ -14,9 +14,10 @@ export class SearchComponent implements OnInit {
   selectPlat: string = '';
   sortGame: string = '';
   games: any[] = [];
+  showEmptySearchResult:boolean=false;
 
   public isMobileLayout = false;
-
+  
   ngOnInit() {
     this.isMobileLayout = window.innerWidth <= 768;
     window.onresize = () => (this.isMobileLayout = window.innerWidth <= 768);
@@ -133,7 +134,7 @@ export class SearchComponent implements OnInit {
   search(selectedCategories: any | any[]): void {
     let endpoint = selectedCategories.length > 1 ? 'filter' : 'games';
     const queryParams: string[] = [];
-
+       this.games = [];
     if (selectedCategories.length > 0) {
       const categoryParam = selectedCategories
         .map((category: any) => category.query)
@@ -164,18 +165,27 @@ export class SearchComponent implements OnInit {
       this.games = data;
     });
   }
-  onDesktopSubmit() {
+
+
+  onDesktopSubmit(){
     const selectedCategories = this.catArray.filter(
       (category) => this.checkBoxForm.get(category.formC)?.value
+     
     );
-
+    
     console.table(this.checkBoxForm.value);
     return this.search(selectedCategories);
   }
   onMobileSubmit() {
     const selectedCategory = [this.mobileForm.value.category];
-
+   
     console.log(selectedCategory);
     return this.search(selectedCategory);
   }
+
+
+
+
 }
+
+
