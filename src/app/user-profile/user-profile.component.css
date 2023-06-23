@@ -1,0 +1,55 @@
+#profile {
+  display: grid;
+  grid-template: 2fr 1fr / 1fr 2fr;
+}
+
+#profile-details {
+    grid-area: 1 / 1 / 3 / 2;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profile-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+#profile-picture img {
+    width: 200px;
+}
+
+#edit-profile-picture {
+    font-size: 0.7rem
+}
+
+#favorite-games {
+    grid-area: 1 / 2 / 2 / 3;
+    /* background-color: blue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#favourite-game {
+    max-width: 35%;
+}
+
+#profile-options {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-left: 50px;
+    /* background-color: green; */
+}
+
+#profile-options .option {
+    margin-bottom: 0.5rem;
+}
+
+::placeholder {
+    color: #cad2c5b7;
+}

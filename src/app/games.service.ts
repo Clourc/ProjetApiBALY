@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import userJson from './usersJson.json';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,6 @@ export class GamesService {
       })
     );
   };
+
+  user = userJson;
 }

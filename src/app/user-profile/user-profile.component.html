@@ -1,0 +1,64 @@
+<div id="profile">
+  <div id="profile-details">
+    <div id="profile-picture">
+      <!--  Avatar, id... -->
+      <img [src]="user.profilePicture" />
+    </div>
+    <h2>Bonjour {{ user.id }} !</h2>
+  </div>
+  <!-- Jeux favoris -->
+  <div id="favorite-games">
+    <a
+      [routerLink]="['/game/', this.game.id]"
+      *ngFor="let game of favoriteGames"
+      id="favorite-game"
+      ><img [src]="game.thumbnail" id="favourite-game-img"
+    /></a>
+  </div>
+  <!-- Logout, change userId.. -->
+  <div id="profile-options">
+    <form (ngSubmit)="onSubmitId(Id_Form)" #Id_Form="ngForm">
+      <label for="userId-field">Change userId: </label>
+      <input
+        type="text"
+        name="userId"
+        id="userId-field"
+        [placeholder]="user.id"
+        #userId="ngModel"
+        ngModel
+        minlength="3"
+        required
+      />
+      <button type="submit" [disabled]="!Id_Form.valid">Update</button>
+    </form>
+
+    <form (ngSubmit)="onSubmitPassword(Password_Form)" #Password_Form="ngForm">
+      <label for="userPassword-field">Change password: </label>
+      <input
+        type="password"
+        name="userPassword"
+        id="userPassword-field"
+        #userPassword="ngModel"
+        ngModel
+        minlength="8"
+        required
+      />
+      <button type="submit" [disabled]="!Password_Form.valid">Update</button>
+    </form>
+
+    <form (ngSubmit)="onSubmitImg(Img_Form)" #Img_Form="ngForm">
+      <label for="userImg-field">Change profile picture: </label>
+      <input
+        type="url"
+        name="userImg"
+        id="userImg-field"
+        #userImg="ngModel"
+        ngModel
+        required
+      />
+      <button type="submit" [disabled]="!Img_Form.valid">Update</button>
+    </form>
+
+    <span class="option"><button type="button" (click)="logout()">Se déconnecter</button></span>
+  </div>
+</div>
