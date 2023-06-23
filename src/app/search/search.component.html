@@ -1,9 +1,15 @@
 <h1>Find your game!</h1>
 
 <div id="naviagtionElements">
+
+  <div>
+    <input [(ngModel)]="alphabetInput" name="alphabetInput" id="alphabetInput" type="text" placeholder="Filter by alphabet"  />
+
+  </div>
   <select [(ngModel)]="selectPlat" name="Plateform" id="platSelect">
     <option *ngFor="let element of searchArray">{{ element }}</option>
   </select>
+  
 
   <select [(ngModel)]="sortGame" name="Sort" id="sort">
     <option *ngFor="let element of sortArray">{{ element }}</option>
@@ -45,14 +51,16 @@
       />
       <label [for]="category.formC">{{ category.query }}</label>
     </div>
-  </div>
+
   <button type="submit">go</button>
   <div *ngIf="desktopBoxForm.submitted && !checkBoxForm.pristine && games.length === 0">
     <h2>No game found!</h2>
   </div>
 </form>
 </div>
+  
 <h2>Search Results</h2>
+
 
 <div>
   <div *ngIf="games && games.length > 0"></div>
@@ -61,6 +69,7 @@
   <div class="gameCardStyle">
     <div *ngFor="let game of games">
       <app-game-card [game]="game"></app-game-card>
+      
     </div>
   </div>
 </div>

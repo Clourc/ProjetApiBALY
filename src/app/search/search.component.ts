@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   selectPlat: string = '';
   sortGame: string = '';
   games: any[] = [];
+  alphabetInput: string = '';
   showEmptySearchResult:boolean=false;
 
   public isMobileLayout = false;
@@ -160,22 +161,20 @@ export class SearchComponent implements OnInit {
     }
 
     callAPI(this.http, endpoint).subscribe((data) => {
-      console.log(endpoint);
-      console.log('API response:', data);
       this.games = data;
+      this.filterGamesByAlphabet();
     });
   }
 
 
   onDesktopSubmit(){
     const selectedCategories = this.catArray.filter(
-      (category) => this.checkBoxForm.get(category.formC)?.value
-     
-    );
+      (category) => this.checkBoxForm.get(category.formC)?.value);
     
     console.table(this.checkBoxForm.value);
     return this.search(selectedCategories);
   }
+  
   onMobileSubmit() {
     const selectedCategory = [this.mobileForm.value.category];
    
@@ -183,9 +182,15 @@ export class SearchComponent implements OnInit {
     return this.search(selectedCategory);
   }
 
-
-
-
+  filterGamesByAlphabet() {
+    let filtered = this.games.filter((game) => {
+      return game.title
+        .toLowerCase()
+        .includes(this.alphabetInput.toLowerCase());   
+    });
+    this.games = filtered;
+    console.log('Filtered Games:', this.games);
+  }
 }
 
 
