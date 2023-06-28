@@ -46,6 +46,18 @@ option {
   
 }
 
+#result{
+  background-color:#52796f;
+}
+
+label{
+  background-color: #354f52;
+}
+
+div{
+  background-color: #354f52;
+}
+
 @media screen and (min-width: 768px) {
   app-game-card:hover {
     transform: scale(1.1);
@@ -92,21 +104,4 @@ option {
     grid-template-columns: repeat(8, 1fr);
     gap: 25px;
   }
-}
-
-::placeholder {
-  color: #090909;
-  background-color: #cad2c5;
-}
-
-#result{
-  background-color:#52796f;
-}
-
-label{
-  background-color: #354f52;
-}
-
-div{
-  background-color: #354f52;
 }
