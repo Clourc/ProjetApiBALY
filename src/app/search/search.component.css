@@ -16,6 +16,8 @@ select {
   margin-top: 1em;
   margin-bottom: 1em;
   width: 30%;
+  background-color: #354f52;
+ 
 }
 
 h1,
@@ -30,13 +32,18 @@ h2 {
 }
 
 option {
+  
   text-align: center;
+  background-color: #354f52;
+  color: #cad2c5
 }
 
-#naviagtionElements {
+#navigationElements {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #52796f;
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -48,11 +55,13 @@ option {
   app-game-card {
     width: 100%;
     border-radius: 0 10px 10px 0;
+    background-color: #354f52;
   }
 
   .gameCardStyle {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    background-color: #52796f;
 
     grid-gap: 3em;
     width: 100%;
@@ -71,14 +80,33 @@ option {
   }
   #test {
     border: 1px solid black;
-    border-radius: 2%;
-    background-color: gray;
+    border-radius: 10px;
+    background-color: #354f52;
     width: 100%;
     margin: auto;
     padding-left: 3em;
     padding-right: 3em;
 
+
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    gap: 25px;
   }
+}
+
+::placeholder {
+  color: #090909;
+  background-color: #cad2c5;
+}
+
+#result{
+  background-color:#52796f;
+}
+
+label{
+  background-color: #354f52;
+}
+
+div{
+  background-color: #354f52;
 }

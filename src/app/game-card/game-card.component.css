@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   background-color:#354F52;
+  border-radius: 10px;
   
 }
 
@@ -31,6 +32,7 @@ p{
 a {
   color: black;
   text-decoration: none;
+  background-color: #354F52;
 }
 
 .game-card-info {

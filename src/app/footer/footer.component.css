@@ -2,8 +2,10 @@ footer {
   background-color: #354F52;
   /* padding: 20px 0; */
   
- justify-content: center;
- 
+ justify-content: space-between;
+ position: relative;
+  bottom: 0;
+  width: 100%;
  
 
 }

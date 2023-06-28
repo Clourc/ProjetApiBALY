@@ -3,6 +3,23 @@ div {
     flex-direction: column;
     align-items: center;
 }
+p{
+    font-size: 10rem;
+    background: linear-gradient(90deg, #52796f, #cad2c5, #354f52);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 2s infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+    @keyframes animate {
+        0% {
+          background-position: -500%;
+        }
+        100% {
+          background-position: 500%;
+        }
+      }
 
 button {
     background-color: #333;
