@@ -9,7 +9,10 @@
 }
 
 hr {
-    width: 80%
+    width: 80%;
+    background-color: black;
+    height: 1px;
+    border: none;
 }
 
 form {

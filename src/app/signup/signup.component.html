@@ -1,5 +1,8 @@
-<div>
-  <div id="retour_titre"><a routerLink="/login">Retour à la connexion</a><h2>Créer un compte</h2></div>
+<div id="content">
+  <div id="retour_titre">
+    <a routerLink="/login">Retour à la connexion</a>
+    <h2>Créer un compte</h2>
+  </div>
   <form
     (ngSubmit)="signupForm.valid && onSubmit()"
     [formGroup]="signupForm"
@@ -7,7 +10,12 @@
   >
     <div>
       <label for="UserId">Identifiant: </label>
-      <input type="text" name="UserId" formControlName="id" />
+      <input
+        type="text"
+        name="UserId"
+        class="input-text"
+        formControlName="id"
+      />
       <div *ngIf="signupForm['controls'].id.errors && signup_form.submitted">
         <span *ngIf="signupForm['controls'].id.errors?.['required']"
           >Le champ Identifiant doit être renseigné</span
@@ -20,7 +28,12 @@
 
     <div formGroupName="passwords">
       <label for="UserPassword">Mot de passe: </label>
-      <input type="password" name="UserPassword" formControlName="password" />
+      <input
+        type="password"
+        class="input-text"
+        name="UserPassword"
+        formControlName="password"
+      />
       <div
         *ngIf="
           signupForm['controls'].passwords['controls'].password.errors &&
@@ -40,6 +53,7 @@
       <label for="UserConfirm-password">Confirmer mot de passe: </label>
       <input
         type="password"
+        class="input-text"
         name="UserConfirm-password"
         formControlName="confirmPassword"
       />
@@ -69,7 +83,12 @@
 
     <div>
       <label for="UserEmail">Adresse email: </label>
-      <input type="email" name="UserEmail" formControlName="email" />
+      <input
+        type="email"
+        name="UserEmail"
+        class="input-text"
+        formControlName="email"
+      />
       <div *ngIf="signupForm['controls'].email.errors && signup_form.submitted">
         <span *ngIf="signupForm['controls'].email.errors?.['required']"
           >Le champ email doit être renseigné</span
@@ -81,11 +100,18 @@
     </div>
 
     <div id="cgu-checkbox">
-      <input type="checkbox" name="cgu" formControlName="cgu">
-      <label for="cgu">J'accepte les <a routerLink="/cgu" target="_blank">conditions géniales d'utilisation</a></label>
+      <input type="checkbox" name="cgu" formControlName="cgu" />
+      <label for="cgu"
+        >J'accepte les
+        <a routerLink="/cgu" target="_blank"
+          >conditions géniales d'utilisation</a
+        ></label
+      >
     </div>
     <div *ngIf="signupForm['controls'].cgu.errors && signup_form.submitted">
-      <span *ngIf="signupForm['controls'].cgu.errors?.['required']">Vous devez accepter les CGU</span>
+      <span *ngIf="signupForm['controls'].cgu.errors?.['required']"
+        >Vous devez accepter les CGU</span
+      >
     </div>
 
     <button type="submit">Confirmer</button>

@@ -11,7 +11,9 @@
         type="text"
         name="id"
         id="id"
+        class="input-text"
         [(ngModel)]="userId"
+        placeholder="Lucas"
         required
       /><br />
     </div>
@@ -21,13 +23,15 @@
       <input
         type="password"
         name="password"
+        class="input-text"
         id="password"
         [(ngModel)]="password"
+        placeholder="CoucouLucas"
         required
       /><br />
     </div>
 
-    <button type="submit">Connexion</button>
+    <button type="submit" [disabled]="!login_form.valid">Connexion</button>
   </form>
 
   <hr />
@@ -38,5 +42,3 @@
     </button>
   </div>
 </div>
-
-<button type="buttin" (click)="getUser('Lucas')">Test</button>
