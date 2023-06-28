@@ -8,11 +8,11 @@
       id="alphabetInput"
       type="text"
       class="input-text"
-      placeholder="Filter by alphabet"
+      placeholder="Search by name..."
     />
   </div>
   <select [(ngModel)]="selectPlat"  name="Plateform" id="platSelect">
-    <option value=""disabled selected> choose Plateform</option>
+    <option value=""disabled selected>Plateform</option>
     <option *ngFor="let element of searchArray" >{{ element }}</option>
   </select>
 

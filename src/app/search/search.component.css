@@ -46,6 +46,7 @@ option {
   
 }
 
+
 #result{
   background-color:#52796f;
 }
@@ -56,6 +57,12 @@ label{
 
 div{
   background-color: #354f52;
+
+#platSelect, #sort{
+  border-radius: 30px;
+}
+select{
+  border-radius: 30px;
 }
 
 @media screen and (min-width: 768px) {
