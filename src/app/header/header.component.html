@@ -12,10 +12,10 @@
   <nav>
     <ul>
       
-      <li><a routerLink="/search"><i class="fa fa-search" id="search games"></i></a></li>
+      <li><a routerLink="/search"><i class="fa fa-search" id="searchGames"></i><p>Search</p></a></li>
       
-      <li *ngIf="!isLoggedIn; else ProfileLink"><a routerLink="/login">Connexion</a></li>
-      <ng-template #ProfileLink><li><a routerLink="/user">Mon Profil</a></li></ng-template>
+      <li *ngIf="!isLoggedIn; else ProfileLink"><a routerLink="/login"><i class="fas fa-user"></i><p>Login</p></a></li>
+      <ng-template #ProfileLink><li><a  routerLink="/user"> <i class="fas fa-user"></i>Profil</a></li></ng-template>
     </ul>
   </nav>
 </header>
