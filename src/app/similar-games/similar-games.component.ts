@@ -43,6 +43,7 @@ export class SimilarGamesComponent implements OnInit {
   }
 
   showMoreGames() {
+    this.maxNbShownGames += 10;
     return this.gamesService.showMoreGames(
       this.maxNbShownGames,
       this.similarGames,
