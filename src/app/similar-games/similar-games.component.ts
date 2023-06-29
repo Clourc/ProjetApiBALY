@@ -23,15 +23,7 @@ export class SimilarGamesComponent implements OnInit {
   similarGames: any[] = [];
 
   ngOnInit() {
-    if (this.gameGenre === 'MMOARPG') {
-      this.gameGenre = 'MMORPG';
-    }
-    if (this.gameGenre === 'ARPG') {
-      this.gameGenre = 'action-rpg';
-    }
-    if (this.gameGenre === 'Action RPG') {
-      this.gameGenre = 'action-rpg';
-    }
+    this.rectifyGameGenre(this.gameGenre);
 
     callAPI(this.http, `games?category=${this.gameGenre}`).subscribe((data) => {
       this.gamesData = data;
@@ -63,5 +55,20 @@ export class SimilarGamesComponent implements OnInit {
       1
     );
     console.log(array);
+  }
+
+  rectifyGameGenre(gameGenre: string){
+    if (gameGenre === 'MMOARPG') {
+      this.gameGenre = 'MMORPG';
+    }
+    if (gameGenre === 'ARPG') {
+      this.gameGenre = 'action-rpg';
+    }
+    if (gameGenre === 'Action RPG') {
+      this.gameGenre = 'action-rpg';
+    }
+    if (gameGenre === 'Battle Royale'){
+      this.gameGenre = 'battle-royale';
+    }
   }
 }

@@ -1,6 +1,5 @@
 app-game-card {
   width: 75%;
-  border: solid 1px black;
   border-radius: 0 0 10px 10px;
   margin-bottom: 1rem;
   display: flex;
@@ -17,7 +16,6 @@ select {
   margin-bottom: 1em;
   width: 30%;
   background-color: #354f52;
- 
 }
 
 h1,
@@ -27,15 +25,30 @@ h2 {
   text-align: center;
 }
 
+#no-game-found {
+  background-color: #52796f;
+}
+
+#search-result-title {
+  margin-top: 0;
+}
+
 .mobile-cats {
   width: 100%;
 }
 
 option {
-  
   text-align: center;
   background-color: #354f52;
-  color: #cad2c5
+  color: #cad2c5;
+}
+
+input[type=checkbox]{
+  vertical-align: middle;
+}
+
+input[type=checkbox]+label {
+  padding-left: 0.3rem;
 }
 
 #navigationElements {
@@ -43,26 +56,25 @@ option {
   flex-direction: column;
   align-items: center;
   background-color: #52796f;
-  
 }
 
-
-#result{
-  background-color:#52796f;
+#result {
+  background-color: #52796f;
 }
 
-label{
+label {
   background-color: #354f52;
 }
 
-div{
+div {
   background-color: #354f52;
 }
 
-#platSelect, #sort{
+#platSelect,
+#sort {
   border-radius: 30px;
 }
-select{
+select {
   border-radius: 30px;
 }
 
@@ -98,15 +110,14 @@ select{
   #deskBox > button {
     margin-top: 2em;
   }
+
   #test {
     border: 1px solid black;
     border-radius: 10px;
     background-color: #354f52;
     width: 100%;
     margin: auto;
-    padding-left: 3em;
-    padding-right: 3em;
-
+    padding: 0.5rem 3em 0.5em;
 
     display: grid;
     grid-template-columns: repeat(8, 1fr);

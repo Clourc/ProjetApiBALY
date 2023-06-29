@@ -11,13 +11,13 @@
       placeholder="Search by name..."
     />
   </div>
-  <select [(ngModel)]="selectPlat"  name="Plateform" id="platSelect">
-    <option value=""disabled selected>Plateform</option>
-    <option *ngFor="let element of searchArray" >{{ element }}</option>
+  <select [(ngModel)]="selectPlat" name="Plateform" id="platSelect">
+    <option value="" disabled selected>Plateform</option>
+    <option *ngFor="let element of searchArray">{{ element }}</option>
   </select>
 
   <select [(ngModel)]="sortGame" name="Sort" id="sort">
-    <option value=""disable selected > filter by </option>
+    <option value="" disable selected>filter by</option>
     <option *ngFor="let element of sortArray">{{ element }}</option>
   </select>
 
@@ -57,21 +57,18 @@
         />
         <label [for]="category.formC">{{ category.query }}</label>
       </div>
-
     </div>
     <button type="submit">go</button>
+    <h2 id="search-result-title">Search Results</h2>
     <div
+      id="no-game-found"
       *ngIf="
-        desktopBoxForm.submitted &&
-        !checkBoxForm.pristine &&
-        games.length === 0
+        desktopBoxForm.submitted && !checkBoxForm.pristine && games.length === 0
       "
-      >
+    >
       <h2>No game found!</h2>
-  </div>
+    </div>
   </form>
-  
-  <h2>Search Results</h2>
 
   <div id="result">
     <div *ngIf="games && games.length > 0"></div>
@@ -79,8 +76,9 @@
     <label for="category"></label>
     <div class="gameCardStyle">
       <!-- <div *ngFor="let game of games"> -->
-        <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
-      </div>
+      <app-game-card *ngFor="let game of gamesToDisplay" [game]="game"></app-game-card>
     </div>
+    <span *ngIf="gamesToDisplay.length > 0"><button type="button" (click)="showMoreGames()">Plus de jeux...</button></span>
   </div>
+</div>
 <!-- </div> -->

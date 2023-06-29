@@ -44,12 +44,16 @@ export class DetailComponent implements OnInit {
   }
 
   toggleFavGame() {
-    if (this.userFavGames.includes(this.gameDetails.id)) {
-      this.userFavGames.splice(this.userFavGames.indexOf(this.gameDetails.id), 1);
-      console.log(`Favorite game ${this.gameDetails.title} removed`);
+    if(this.userService.isLoggedIn){
+      if (this.userFavGames.includes(this.gameDetails.id)) {
+        this.userFavGames.splice(this.userFavGames.indexOf(this.gameDetails.id), 1);
+        console.log(`Favorite game ${this.gameDetails.title} removed`);
+      } else {
+        this.userFavGames.push(this.gameDetails.id);
+        console.log(`Added ${this.gameDetails.title} to favorites`);
+      }
     } else {
-      this.userFavGames.push(this.gameDetails.id);
-      console.log(`Added ${this.gameDetails.title} to favorites`);
+      alert("Vous n'êtes pas connecté");
     }
   }
 }

@@ -24,14 +24,14 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserProfileComponent,
-    
-  },/*  canActivate: [accessProfileGuard], */
+    canActivate: [accessProfileGuard]
+  },
   { path: '', redirectTo: 'games', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

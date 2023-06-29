@@ -9,3 +9,8 @@
     height: 80vh;
     justify-content: space-between;
 }
+
+
+@media screen and (max-width: 767px) {
+
+  }

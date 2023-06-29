@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { callAPI } from '../api-config/config';
 import { FormBuilder } from '@angular/forms';
+import { GamesService } from '../games.service';
 
 @Component({
   selector: 'app-search',
@@ -9,16 +10,18 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  constructor(private http: HttpClient, private fb: FormBuilder) {}
+  constructor(private http: HttpClient, private fb: FormBuilder, private gamesService: GamesService) {}
   searchTerm: string = '';
   selectPlat: string = '';
   sortGame: string = '';
+  gamesToDisplay: any[] = [];
   games: any[] = [];
+  maxNbShownGames: number = 10;
   alphabetInput: string = '';
-  showEmptySearchResult:boolean=false;
+  showEmptySearchResult: boolean = false;
 
   public isMobileLayout = false;
-  
+
   ngOnInit() {
     this.isMobileLayout = window.innerWidth <= 768;
     window.onresize = () => (this.isMobileLayout = window.innerWidth <= 768);
@@ -135,7 +138,9 @@ export class SearchComponent implements OnInit {
   search(selectedCategories: any | any[]): void {
     let endpoint = selectedCategories.length > 1 ? 'filter' : 'games';
     const queryParams: string[] = [];
-       this.games = [];
+    this.games = [];
+    this.gamesToDisplay = [];
+    this.maxNbShownGames = 10;
     if (selectedCategories.length > 0) {
       const categoryParam = selectedCategories
         .map((category: any) => category.query)
@@ -163,21 +168,28 @@ export class SearchComponent implements OnInit {
     callAPI(this.http, endpoint).subscribe((data) => {
       this.games = data;
       this.filterGamesByAlphabet();
+      if (this.games.length === 1) {
+        this.gamesToDisplay = this.games;
+      } else {
+        for (let i = 0; i < this.maxNbShownGames; i++) {
+          this.gamesToDisplay.push(this.games[i]);
+        }
+      }
     });
   }
 
-
-  onDesktopSubmit(){
+  onDesktopSubmit() {
     const selectedCategories = this.catArray.filter(
-      (category) => this.checkBoxForm.get(category.formC)?.value);
-    
+      (category) => this.checkBoxForm.get(category.formC)?.value
+    );
+
     console.table(this.checkBoxForm.value);
     return this.search(selectedCategories);
   }
-  
+
   onMobileSubmit() {
     const selectedCategory = [this.mobileForm.value.category];
-   
+
     console.log(selectedCategory);
     return this.search(selectedCategory);
   }
@@ -186,11 +198,14 @@ export class SearchComponent implements OnInit {
     let filtered = this.games.filter((game) => {
       return game.title
         .toLowerCase()
-        .includes(this.alphabetInput.toLowerCase());   
+        .includes(this.alphabetInput.toLowerCase());
     });
     this.games = filtered;
     console.log('Filtered Games:', this.games);
   }
+
+  showMoreGames(){
+    this.maxNbShownGames += 10;
+    return this.gamesService.showMoreGames(this.maxNbShownGames, this.gamesToDisplay, this.games)
+  }
 }
-
-
