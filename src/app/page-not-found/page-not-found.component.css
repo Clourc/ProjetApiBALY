@@ -2,6 +2,7 @@
   background-image:url(https://cdn.pixabay.com/photo/2018/01/31/07/36/secret-3120483_1280.jpg);
  background-size: cover;
  background-repeat: no-repeat;
+ background-position: center;
 
  
   display: flex;
@@ -52,4 +53,12 @@ button {
     transform: none;
     opacity: 1;
   }
+}
+
+@media screen and (max-width: 768px) {
+  
+  .animated-text, .not-found{
+    font-size: 40px;
+  }
+
 }

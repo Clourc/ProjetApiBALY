@@ -7,6 +7,7 @@ app-game-card {
   justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
+  background-color: #354f52;
 }
 
 select {
@@ -68,7 +69,7 @@ label {
 
 div {
   background-color: #354f52;
-}
+} */
 
 #platSelect,
 #sort {
