@@ -1,20 +1,23 @@
 <h1>Find your game!</h1>
 
-<div id="naviagtionElements">
+<div id="navigationElements">
   <div>
     <input
       [(ngModel)]="alphabetInput"
       name="alphabetInput"
       id="alphabetInput"
       type="text"
-      placeholder="Filter by alphabet"
+      class="input-text"
+      placeholder="Search by name..."
     />
   </div>
   <select [(ngModel)]="selectPlat" name="Plateform" id="platSelect">
+    <option value="" disabled selected>Plateform</option>
     <option *ngFor="let element of searchArray">{{ element }}</option>
   </select>
 
   <select [(ngModel)]="sortGame" name="Sort" id="sort">
+    <option value="" disable selected>Filter by</option>
     <option *ngFor="let element of sortArray">{{ element }}</option>
   </select>
 
@@ -35,7 +38,7 @@
         {{ category.query }}
       </option>
     </select>
-    <button type="submit">go</button>
+    <button type="submit">Search</button>
   </form>
 
   <form
@@ -45,8 +48,8 @@
     [formGroup]="checkBoxForm"
     #desktopBoxForm="ngForm"
   >
-    <div *ngIf="!isMobileLayout" id="test">
-      <div *ngFor="let category of catArray">
+    <div *ngIf="!isMobileLayout" id="checkboxes">
+      <div *ngFor="let category of catArray" id="checkbox">
         <input
           type="checkbox"
           [id]="category"
@@ -54,30 +57,32 @@
         />
         <label [for]="category.formC">{{ category.query }}</label>
       </div>
-
     </div>
-    <button type="submit">go</button>
+    <button type="submit">Search</button>
+    <h2 id="search-result-title">Search Results</h2>
     <div
+      id="no-game-found"
       *ngIf="
-        desktopBoxForm.submitted &&
-        !checkBoxForm.pristine &&
-        games.length === 0
+        desktopBoxForm.submitted && !checkBoxForm.pristine && games.length === 0
       "
-      >
+    >
       <h2>No game found!</h2>
-  </div>
+    </div>
   </form>
-  
-  <h2>Search Results</h2>
 
-  <div>
-    <div *ngIf="games && games.length > 0"></div>
-
+  <div id="result">
     <label for="category"></label>
     <div class="gameCardStyle">
-      <div *ngFor="let game of games">
-        <app-game-card [game]="game"></app-game-card>
-      </div>
+      <app-game-card
+        *ngFor="let game of gamesToDisplay"
+        [game]="game"
+      ></app-game-card>
     </div>
+    <span *ngIf="gamesToDisplay.length > 0"
+      ><button type="button" (click)="showMoreGames()">
+        More Games...
+      </button></span
+    >
   </div>
 </div>
+

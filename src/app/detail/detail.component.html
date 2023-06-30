@@ -18,10 +18,18 @@
         </li>
 
         <li>
-          <button (click)="toggleFavGame()"><span *ngIf="this.userFavGames.includes(this.gameDetails.id); else empty_star">⭐</span></button>
+          <button (click)="toggleFavGame()">
+            <span
+              *ngIf="
+                this.userFavGames.includes(this.gameDetails.id);
+                else empty_star
+              "
+              id="fav-star"
+              >⭐</span
+            >
+          </button>
         </li>
-        <ng-template #empty_star><span>✰</span></ng-template>
-        
+        <ng-template #empty_star><span class="fas fa-star"></span></ng-template>
       </ul>
     </div>
   </div>
@@ -32,31 +40,30 @@
       {{ this.gameDetails.description }}
     </p>
 
-    <p>Developer:{{ this.gameDetails.developer }}</p>
+    <p>Developer: {{ this.gameDetails.developer }}</p>
+
+    <p>Publisher : {{ this.gameDetails.publisher }}</p>
 
     <ul id="sysReq" *ngIf="this.gameDetails.platform == 'Windows'">
-      Minimum system requirements:
+      <u>Minimum system requirements :</u>
       <li>
-        graphics : {{ this.gameDetails.minimum_system_requirements.graphics }}
-      </li>
-
-      <li>Memory :{{ this.gameDetails.minimum_system_requirements.memory }}</li>
-
-      <li>
-        platform :{{ this.gameDetails.minimum_system_requirements.platform }}
+        Graphics : {{ this.gameDetails.minimum_system_requirements.graphics }}
       </li>
 
       <li>
-        Processor :{{ this.gameDetails.minimum_system_requirements.processor }}
+        Memory : {{ this.gameDetails.minimum_system_requirements.memory }}
+      </li>
+
+      <li>
+        Processor : {{ this.gameDetails.minimum_system_requirements.processor }}
       </li>
       <li>
-        Storage :{{ this.gameDetails.minimum_system_requirements.graphics }}
+        Storage : {{ this.gameDetails.minimum_system_requirements.graphics }}
       </li>
     </ul>
 
-    <p>Plateform:{{ this.gameDetails.platform }}</p>
-    <p>Publisher:{{ this.gameDetails.publisher }}</p>
-    <p>Release date:{{ this.gameDetails.release_date }}</p>
+    <p>Plateform : {{ this.gameDetails.platform }}</p>
+    <p>Release date : {{ this.gameDetails.release_date }}</p>
     <div id="screenshots">
       <div class="screenshot" *ngFor="let screenshot of screenshotArray">
         <img
@@ -76,6 +83,7 @@
     </div>
   </div>
 </div>
+<h1>Similar Games</h1>
 <app-similar-games
   [gameGenre]="this.gameDetails.genre"
   [gameId]="this.gameDetails.id"

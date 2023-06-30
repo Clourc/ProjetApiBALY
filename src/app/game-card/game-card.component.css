@@ -3,9 +3,11 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   background-color:#354F52;
+  border-radius: 10px;
   
 }
 
@@ -31,6 +33,8 @@ p{
 a {
   color: black;
   text-decoration: none;
+  background-color: #354F52;
+  border-radius: 0 0 10px 10px;
 }
 
 .game-card-info {
@@ -39,7 +43,9 @@ a {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  background-color: #354F52
+  background-color: #354F52;
+  border-radius: 0 10px 10px 0;
+
 }
 
 .game-category-platform {
@@ -48,7 +54,8 @@ a {
   gap: 1rem;
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #354F52
+  background-color: #354F52;
+  border-radius: 0 0 10px 10px;
 }
 
 strong {
@@ -76,5 +83,16 @@ strong {
 @media screen and (min-width: 1268px){
   #game-card {
     flex-direction: row;
+    
+  }
+  .game-card-info{
+    border-radius: 0 10px 10px 0;
+    
+  }
+  #game-name{
+    border-radius: 0 10px 0 0;
+  }
+  .game-category-platform{
+    border-radius: 0 0 10px 0;
   }
 }

@@ -4,7 +4,7 @@ import {
   Validators
 } from '@angular/forms';
 import { passwordMatching } from '../formCustomValidators/customValidators';
-import { User, UserService } from '../user.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-signup',

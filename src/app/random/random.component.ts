@@ -14,6 +14,8 @@ export class RandomComponent {
   maxId!: number;
   randomGame: any;
   randomThumbnail: string = '../assets/placeholder/JackBlackBowser.png';
+  randomJingle = new Audio('../../assets/Mario_Kart_Wii_item_box.mp3');
+
 
   ngOnInit() {
     callAPI(this.http, 'games').subscribe((data) => {
@@ -25,6 +27,7 @@ export class RandomComponent {
 
   
   displayRandomThumbnail() {
+    this.playRandomJingle();
     const randomArrayStart = Math.floor(Math.random() * this.gameList.length);
     let randomArrayEnd: number;
     let i = 0;
@@ -60,6 +63,11 @@ export class RandomComponent {
     setTimeout(() => {
       this.randomThumbnail = array[i].thumbnail;
       console.log(this.randomThumbnail);
-    }, 150 * i);
+    }, 180 * i);
+  }
+
+  playRandomJingle(){
+    this.randomJingle.load();
+    this.randomJingle.play();
   }
 }

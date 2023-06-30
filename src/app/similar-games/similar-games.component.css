@@ -1,6 +1,5 @@
 app-game-card {
-    width: 75%;
-    border: solid 1px black;
+    width: 45%;
     border-radius: 0 0 10px 10px;
     margin-bottom: 1rem;
   }
@@ -24,6 +23,7 @@ app-game-card {
   
   @media screen and (min-width: 1268px) {
     app-game-card {
+      width: 75%;
       border-radius: 0 10px 10px 0;
     }
   }

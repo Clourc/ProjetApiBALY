@@ -3,6 +3,7 @@
     <img [src]="randomThumbnail" id="randomGame" /> </a
   ><br />
 
+<p *ngIf="!randomGame">?</p>
   <button type="button" (click)="displayRandomThumbnail()">
     random game ?
   </button>

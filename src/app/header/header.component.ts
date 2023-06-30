@@ -9,9 +9,14 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = this.userService.isLoggedIn;
+  isSmallMobileLayout = false;
+
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
+    this.isSmallMobileLayout = window.innerWidth <= 540;
+    window.onresize = () => (this.isSmallMobileLayout = window.innerWidth <= 540)
+
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         console.log(val.url);

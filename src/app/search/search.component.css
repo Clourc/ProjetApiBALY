@@ -1,6 +1,5 @@
 app-game-card {
   width: 75%;
-  border: solid 1px black;
   border-radius: 0 0 10px 10px;
   margin-bottom: 1rem;
   display: flex;
@@ -8,6 +7,7 @@ app-game-card {
   justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
+  background-color: #354f52;
 }
 
 select {
@@ -16,6 +16,7 @@ select {
   margin-top: 1em;
   margin-bottom: 1em;
   width: 30%;
+  background-color: #354f52;
 }
 
 h1,
@@ -25,18 +26,58 @@ h2 {
   text-align: center;
 }
 
+#no-game-found {
+  background-color: #52796f;
+}
+
+#search-result-title {
+  margin-top: 0;
+}
+
 .mobile-cats {
   width: 100%;
 }
 
 option {
   text-align: center;
+  background-color: #354f52;
+  color: #cad2c5;
 }
 
-#naviagtionElements {
+#checkbox {
+  background-color: #354f52;
+}
+
+input[type=checkbox]{
+  vertical-align: middle;
+}
+
+input[type=checkbox]+label {
+  padding-left: 0.3rem;
+}
+
+#navigationElements {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #52796f;
+}
+
+#result {
+  background-color: #52796f;
+}
+
+label {
+  background-color: #354f52;
+}
+
+#platSelect,
+#sort {
+  border-radius: 30px;
+}
+
+select {
+  border-radius: 30px;
 }
 
 @media screen and (min-width: 768px) {
@@ -48,17 +89,20 @@ option {
   app-game-card {
     width: 100%;
     border-radius: 0 10px 10px 0;
+    background-color: #354f52;
   }
 
   .gameCardStyle {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    background-color: #52796f;
 
     grid-gap: 3em;
     width: 100%;
     padding-left: 5em;
     padding-right: 5em;
   }
+
   #deskBox {
     display: flex;
     align-items: center;
@@ -69,16 +113,17 @@ option {
   #deskBox > button {
     margin-top: 2em;
   }
-  #test {
+
+  #checkboxes {
     border: 1px solid black;
-    border-radius: 2%;
-    background-color: gray;
+    border-radius: 10px;
+    background-color: #354f52;
     width: 100%;
     margin: auto;
-    padding-left: 3em;
-    padding-right: 3em;
+    padding: 0.5rem 3em 0.5em;
 
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    gap: 25px;
   }
 }

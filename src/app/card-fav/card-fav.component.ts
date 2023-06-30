@@ -11,7 +11,6 @@ import { callAPI } from '../api-config/config';
 export class CardFavComponent implements OnInit {
   @Input() game: any;
   
-
   constructor(private http: HttpClient, private router: Router) {}
   
   cardFavIds: number[] = [1, 475, 452, 58];

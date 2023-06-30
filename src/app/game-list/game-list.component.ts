@@ -29,7 +29,8 @@ export class GameListComponent implements OnInit {
   }
 
   showMoreGames() {
-    return this.gamesService.showMoreGames(this.maxNbShownGames, this.gamesToDisplay, this.savedData )
+    this.maxNbShownGames += 10;
+    return this.gamesService.showMoreGames(this.maxNbShownGames, this.gamesToDisplay, this.savedData)
     }
 }
 

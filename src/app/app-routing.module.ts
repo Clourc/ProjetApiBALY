@@ -18,20 +18,20 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'mentions', component: MentionsComponent },
+  { path: 'notices', component: MentionsComponent },
   { path: 'random', component: RandomComponent },
   { path: 'cgu', component: CguComponent },
   {
     path: 'user',
     component: UserProfileComponent,
-    canActivate: [accessProfileGuard],
+    canActivate: [accessProfileGuard]
   },
   { path: '', redirectTo: 'games', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'top'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

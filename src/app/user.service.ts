@@ -22,7 +22,7 @@ export class UserService {
     console.log(newUser);
     
     this.users.push(newUser);
-    alert('Nouvel utilisateur créé !');
+    alert('New account created !');
     this.router.navigate(['/login']);
   }
 
@@ -46,6 +46,7 @@ export class UserService {
 
   logout() {
     this.isLoggedIn = false;
+    this.user = undefined;
     this.router.navigate(['/']);
   }
 
