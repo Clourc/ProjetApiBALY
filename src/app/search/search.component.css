@@ -44,6 +44,10 @@ option {
   color: #cad2c5;
 }
 
+#checkbox {
+  background-color: #354f52;
+}
+
 input[type=checkbox]{
   vertical-align: middle;
 }
@@ -66,10 +70,6 @@ input[type=checkbox]+label {
 label {
   background-color: #354f52;
 }
-
-div {
-  background-color: #354f52;
-} */
 
 #platSelect,
 #sort {
@@ -102,6 +102,7 @@ select {
     padding-left: 5em;
     padding-right: 5em;
   }
+
   #deskBox {
     display: flex;
     align-items: center;
@@ -113,7 +114,7 @@ select {
     margin-top: 2em;
   }
 
-  #test {
+  #checkboxes {
     border: 1px solid black;
     border-radius: 10px;
     background-color: #354f52;

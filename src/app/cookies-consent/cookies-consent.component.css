@@ -20,6 +20,10 @@ p {
   width: 100%;
 }
 
+button {
+  margin-top: 0.5rem;
+}
+
 .cookie-consent p {
   background: none;
 }

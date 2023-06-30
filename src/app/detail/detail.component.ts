@@ -53,7 +53,7 @@ export class DetailComponent implements OnInit {
         console.log(`Added ${this.gameDetails.title} to favorites`);
       }
     } else {
-      alert("Vous n'êtes pas connecté");
+      alert("You are not logged in");
     }
   }
 }

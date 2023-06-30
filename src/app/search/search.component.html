@@ -48,8 +48,8 @@
     [formGroup]="checkBoxForm"
     #desktopBoxForm="ngForm"
   >
-    <div *ngIf="!isMobileLayout" id="test">
-      <div *ngFor="let category of catArray">
+    <div *ngIf="!isMobileLayout" id="checkboxes">
+      <div *ngFor="let category of catArray" id="checkbox">
         <input
           type="checkbox"
           [id]="category"
@@ -71,14 +71,18 @@
   </form>
 
   <div id="result">
-    <div *ngIf="games && games.length > 0"></div>
-
     <label for="category"></label>
     <div class="gameCardStyle">
-      <!-- <div *ngFor="let game of games"> -->
-      <app-game-card *ngFor="let game of gamesToDisplay" [game]="game"></app-game-card>
+      <app-game-card
+        *ngFor="let game of gamesToDisplay"
+        [game]="game"
+      ></app-game-card>
     </div>
-    <span *ngIf="gamesToDisplay.length > 0"><button type="button" (click)="showMoreGames()">More Games...</button></span>
+    <span *ngIf="gamesToDisplay.length > 0"
+      ><button type="button" (click)="showMoreGames()">
+        More Games...
+      </button></span
+    >
   </div>
 </div>
-<!-- </div> -->
+

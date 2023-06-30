@@ -16,7 +16,7 @@ export class SimilarGamesComponent implements OnInit {
     private router: Router
   ) {}
   gamesData: any[] = [];
-  maxNbShownGames: number = 10;
+  maxNbShownGames: number = 9;
   @Input() gameGenre: string = '';
   @Input() gameId!: number;
 
