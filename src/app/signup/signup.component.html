@@ -1,7 +1,7 @@
 <div id="content">
   <div id="retour_titre">
-    <a routerLink="/login">Retour à la connexion</a>
-    <h2>Créer un compte</h2>
+    <a routerLink="/login">Back to Login</a>
+    <h2>Sign up</h2>
   </div>
   <form
     (ngSubmit)="signupForm.valid && onSubmit()"
@@ -9,7 +9,7 @@
     #signup_form="ngForm"
   >
     <div>
-      <label for="UserId">Identifiant: </label>
+      <label for="UserId">Login: </label>
       <input
         type="text"
         name="UserId"
@@ -18,16 +18,16 @@
       />
       <div *ngIf="signupForm['controls'].id.errors && signup_form.submitted">
         <span *ngIf="signupForm['controls'].id.errors?.['required']"
-          >Le champ Identifiant doit être renseigné</span
+          >A login must be entered</span
         >
         <span *ngIf="signupForm['controls'].id.errors?.['minlength']"
-          >Votre identifiant doit comporter 3 caractères minimum</span
+          >Your login must be at least 3 characters long</span
         >
       </div>
     </div>
 
     <div formGroupName="passwords">
-      <label for="UserPassword">Mot de passe: </label>
+      <label for="UserPassword">Password: </label>
       <input
         type="password"
         class="input-text"
@@ -42,15 +42,15 @@
       >
         <span
           *ngIf="signupForm['controls'].passwords['controls'].password.errors?.['required']"
-          >Le champ Mot de passe doit être renseigné</span
+          >A password must be entered</span
         >
         <span
           *ngIf="signupForm['controls'].passwords['controls'].password.errors?.['minlength']"
-          >Votre Mot de passe doit comporter 8 caratères minimum</span
+          >Your password must be at least 8 characters long</span
         >
       </div>
 
-      <label for="UserConfirm-password">Confirmer mot de passe: </label>
+      <label for="UserConfirm-password">Confirm password: </label>
       <input
         type="password"
         class="input-text"
@@ -65,7 +65,7 @@
       >
         <span
           *ngIf="signupForm['controls'].passwords['controls'].confirmPassword.errors?.['required']"
-          >Le champ Confirmer mot de passe doit être renseigné</span
+          >You must confirm your password</span
         >
       </div>
       <div
@@ -76,13 +76,13 @@
         "
       >
         <span *ngIf="signupForm['controls'].passwords.errors?.['mustMatch']"
-          >Les deux mots de passe doivent être identiques</span
+          >Both password and confirm password must match</span
         >
       </div>
     </div>
 
     <div>
-      <label for="UserEmail">Adresse email: </label>
+      <label for="UserEmail">Email: </label>
       <input
         type="email"
         name="UserEmail"
@@ -91,10 +91,10 @@
       />
       <div *ngIf="signupForm['controls'].email.errors && signup_form.submitted">
         <span *ngIf="signupForm['controls'].email.errors?.['required']"
-          >Le champ email doit être renseigné</span
+          >An email must be entered</span
         >
         <span *ngIf="signupForm['controls'].email.errors?.['email']"
-          >Le champ email doit être valide</span
+          >The email must be valid</span
         >
       </div>
     </div>
@@ -102,18 +102,18 @@
     <div id="cgu-checkbox">
       <input type="checkbox" name="cgu" formControlName="cgu" />
       <label for="cgu"
-        >J'accepte les
+        >I accept the
         <a routerLink="/cgu" target="_blank"
-          >conditions géniales d'utilisation</a
+          >Terms of Surprises</a
         ></label
       >
     </div>
     <div *ngIf="signupForm['controls'].cgu.errors && signup_form.submitted">
       <span *ngIf="signupForm['controls'].cgu.errors?.['required']"
-        >Vous devez accepter les CGU</span
+        >You must accept the ToS</span
       >
     </div>
 
-    <button type="submit">Confirmer</button>
+    <button type="submit">Create account</button>
   </form>
 </div>

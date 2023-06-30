@@ -1,7 +1,7 @@
 <div id="profile">
   <div id="details-favs">
     <div id="profile-details">
-      <h1>Bonjour {{ user.id }} !</h1>
+      <h1>Welcome back {{ user.id }} !</h1>
       <p>{{ user.emailAddress }}</p>
       <div id="profile-picture">
         <!--  Avatar, id... -->
@@ -10,7 +10,7 @@
     </div>
     <!-- Jeux favoris -->
     <div id="favorite-games-section">
-      <h1 id="title-fav">Mes jeux favoris 🌟</h1>
+      <h1 id="title-fav">My favorite games 🌟</h1>
       <div id="favorite-games">
         <a
           [routerLink]="['/game/', this.game.id]"
@@ -23,10 +23,10 @@
   </div>
   <!-- Logout, change userId.. -->
   <div id="profile-options">
-    <h1 id="edit-title">Editer profil 🔧</h1>
+    <h1 id="edit-title">Edite profile 🔧</h1>
     <form (ngSubmit)="onSubmitId(Id_Form)" #Id_Form="ngForm">
       <div class="input-field">
-        <label for="userId-field">Changer userId: </label>
+        <label for="userId-field">Change login: </label>
         <input
           type="text"
           name="userId"
@@ -39,7 +39,7 @@
           required
         />
       </div>
-      <button type="submit" [disabled]="!Id_Form.valid">Valider</button>
+      <button type="submit" [disabled]="!Id_Form.valid">Update</button>
     </form>
 
     <form
@@ -47,7 +47,7 @@
       #Email_Form="ngForm"
     >
       <div class="input-field">
-        <label for="userEmail-field">Changer Email: </label>
+        <label for="userEmail-field">Change Email: </label>
         <input
           type="text"
           name="userEmail"
@@ -60,7 +60,7 @@
           email
         />
       </div>
-      <button type="submit" [disabled]="!Email_Form.valid">Valider</button>
+      <button type="submit" [disabled]="!Email_Form.valid">Update</button>
     </form>
 
     <form
@@ -70,7 +70,7 @@
     >
       <div id="password-inputs">
         <div class="input-field">
-          <label for="userPassword-field">Changer password: </label>
+          <label for="userPassword-field">Change password: </label>
           <input
             type="password"
             name="userPassword"
@@ -83,7 +83,7 @@
           />
         </div>
         <div class="input-field">
-          <label for="userPasswordCheck-field">Confirmer password: </label>
+          <label for="userPasswordCheck-field">Confirm new password: </label>
           <input
             type="password"
             name="userPasswordCheck"
@@ -96,7 +96,7 @@
           />
         </div>
       </div>
-      <button type="submit" [disabled]="!Password_Form.valid">Valider</button>
+      <button type="submit" [disabled]="!Password_Form.valid">Update</button>
     </form>
 
     <form
@@ -104,7 +104,7 @@
       #Img_Form="ngForm"
     >
       <div class="input-field">
-        <label for="userImg-field">Changer image profil: </label>
+        <label for="userImg-field">Change profile picture: </label>
         <input
           type="url"
           pattern="https://.*"
@@ -117,11 +117,11 @@
           required
         />
       </div>
-      <button type="submit" [disabled]="!Img_Form.valid">Valider</button>
+      <button type="submit" [disabled]="!Img_Form.valid">Update</button>
     </form>
 
     <button type="button" id="logout-button" (click)="logout()">
-      Se déconnecter
+      Log out
     </button>
   </div>
 </div>

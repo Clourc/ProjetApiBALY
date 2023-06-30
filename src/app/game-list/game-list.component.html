@@ -1,9 +1,9 @@
 <app-card-fav></app-card-fav>
 <app-random></app-random>
-<h1>Liste des jeux 🕹</h1>
+<h1>Games List 🕹</h1>
 
 <div class="list">
   <app-game-card *ngFor="let game of gamesToDisplay" [game]="game"></app-game-card>
 </div>
 
-<button type="button" (click)="showMoreGames()">Plus de jeux ...</button>
+<button type="button" (click)="showMoreGames()">More games...</button>

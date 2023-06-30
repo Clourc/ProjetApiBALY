@@ -6,7 +6,7 @@
     </div>
     
     <div class="input-field">
-      <label for="id">Identifiant: </label><br />
+      <label for="id">Login: </label><br />
       <input
         type="text"
         name="id"
@@ -19,7 +19,7 @@
     </div>
 
     <div class="input-field">
-      <label for="password">Mot de passe: </label><br />
+      <label for="password">Password: </label><br />
       <input
         type="password"
         name="password"
@@ -31,14 +31,14 @@
       /><br />
     </div>
 
-    <button type="submit" [disabled]="!login_form.valid">Connexion</button>
+    <button type="submit" [disabled]="!login_form.valid">Log In</button>
   </form>
 
   <hr />
 
   <div>
     <button id="to-signup" type="button" routerLink="/signup">
-      Créer un compte
+      Sign Up
     </button>
   </div>
 </div>

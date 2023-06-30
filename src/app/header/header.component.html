@@ -15,7 +15,7 @@
       <li><a routerLink="/search"><i class="fa fa-search" id="searchGames"></i><p>Search</p></a></li>
       
       <li *ngIf="!isLoggedIn; else ProfileLink"><a routerLink="/login"><i class="fas fa-user"></i><p>Login</p></a></li>
-      <ng-template #ProfileLink><li><a routerLink="/user"> <i class="fas fa-user"></i><p>Profil</p></a></li></ng-template>
+      <ng-template #ProfileLink><li><a routerLink="/user"> <i class="fas fa-user"></i><p>Profile</p></a></li></ng-template>
     </ul>
   </nav>
 </header>

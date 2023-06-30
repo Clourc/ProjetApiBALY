@@ -17,7 +17,7 @@
   </select>
 
   <select [(ngModel)]="sortGame" name="Sort" id="sort">
-    <option value="" disable selected>filter by</option>
+    <option value="" disable selected>Filter by</option>
     <option *ngFor="let element of sortArray">{{ element }}</option>
   </select>
 
@@ -38,7 +38,7 @@
         {{ category.query }}
       </option>
     </select>
-    <button type="submit">go</button>
+    <button type="submit">Search</button>
   </form>
 
   <form
@@ -58,7 +58,7 @@
         <label [for]="category.formC">{{ category.query }}</label>
       </div>
     </div>
-    <button type="submit">go</button>
+    <button type="submit">Search</button>
     <h2 id="search-result-title">Search Results</h2>
     <div
       id="no-game-found"
@@ -78,7 +78,7 @@
       <!-- <div *ngFor="let game of games"> -->
       <app-game-card *ngFor="let game of gamesToDisplay" [game]="game"></app-game-card>
     </div>
-    <span *ngIf="gamesToDisplay.length > 0"><button type="button" (click)="showMoreGames()">Plus de jeux...</button></span>
+    <span *ngIf="gamesToDisplay.length > 0"><button type="button" (click)="showMoreGames()">More Games...</button></span>
   </div>
 </div>
 <!-- </div> -->

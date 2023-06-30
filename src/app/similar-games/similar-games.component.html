@@ -2,5 +2,5 @@
     <app-game-card [game]="game" (click)="reloadDetails(game.id)"></app-game-card>
 </div>
 <div *ngIf="similarGames.length != gamesData.length">
-<button (click)="showMoreGames()" >More games</button>
+<button (click)="showMoreGames()" >More games...</button>
 </div>

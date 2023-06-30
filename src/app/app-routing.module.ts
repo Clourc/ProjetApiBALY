@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'mentions', component: MentionsComponent },
+  { path: 'notices', component: MentionsComponent },
   { path: 'random', component: RandomComponent },
   { path: 'cgu', component: CguComponent },
   {
