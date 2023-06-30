@@ -8,6 +8,7 @@
     background: radial-gradient(circle, rgba(53,79,82,1) 39%, rgba(82,121,111,1) 70%);
     text-align: center;
     z-index: 100;
+    border: solid ;
   }
 
   p{
