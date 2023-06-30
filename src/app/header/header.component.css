@@ -1,8 +1,8 @@
 header {
     background-color: #354F52;
-    padding: 20px;
+    padding: 10px 20px 0;
     display: flex;
-    
+    justify-content: space-between;
     align-items: center;
     height: 20vh;
    box-sizing:content-box;

@@ -1,6 +1,6 @@
 app-game-card {
   width: 75%;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   border-radius: 0 0 10px 10px;
   margin-bottom: 1rem;
   display: flex;
@@ -8,6 +8,7 @@ app-game-card {
   justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
+  background-color: #354f52;
 }
 
 select {
@@ -55,9 +56,9 @@ label{
   background-color: #354f52;
 }
 
-div{
+/* div{
   background-color: #354f52;
-}
+} */
 
 #platSelect, #sort{
   border-radius: 30px;
