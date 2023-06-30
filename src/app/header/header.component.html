@@ -1,12 +1,12 @@
 <header>
  <div>
     <a routerLink="/">
-      <div class="ring">BAlY GAMES
-        <span></span>
+      <div class="ring"><span id="logo-title">BAlY GAMES</span>
+        <span id="orb"></span>
       </div>
     </a>
   </div>
- <div>
+ <div *ngIf="!isSmallMobileLayout">
   <h1>Gaming Mode Free</h1>
 </div>
   <nav>

@@ -2,7 +2,7 @@ header {
   background-color: #354f52;
   padding: 20px;
   display: flex;
-
+  justify-content: space-around;
   align-items: center;
   height: 20vh;
   box-sizing: content-box;
@@ -14,9 +14,6 @@ h1 {
   font-family: sans-serif;
   letter-spacing: 15px;
   background-color: #354f52;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   text-align: center;
@@ -29,10 +26,6 @@ nav ul {
   align-items: center;
   background-color: #354f52;
   grid-gap: 40px;
-}
-
-nav {
-  margin-left: 80%;
 }
 
 nav ul li a {
@@ -54,6 +47,8 @@ li:last-child {
 
 a {
   display: flex;
+  text-decoration: none;
+  background-color: #354f52;
 }
 
 p {
@@ -62,14 +57,10 @@ p {
 }
 
 .ring {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  transform: translate(-40%, -35%);
   width: 140px;
   height: 105px;
-  background: transparent;
   border: 3px solid #52796f;
+  background: transparent;
   border-radius: 50%;
   text-align: center;
   line-height: 47px;
@@ -80,13 +71,13 @@ p {
   text-transform: uppercase;
   text-shadow: 0 0 10px #52796f;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .ring:before {
   content: "";
-  position: absolute;
-  top: -3px;
-  left: -3px;
+  display: inline-block;
+  position: relative;
   width: 100%;
   height: 100%;
   border: 3px solid transparent;
@@ -94,13 +85,20 @@ p {
   border-right: 3px solid #cad2c5;
   border-radius: 50%;
   animation: animateC 2s linear infinite;
+  z-index: 1;
 }
 
-span {
+#logo-title {
+  position: relative;
+  bottom: 118px;
+  background: transparent;
+}
+
+#orb {
   display: block;
-  position: absolute;
-  top: calc(50% - 2px);
-  left: 50%;
+  position: relative;
+  bottom: 168px;
+  left: 69px;
   width: 50%;
   height: 4px;
   background: transparent;
@@ -108,7 +106,7 @@ span {
   animation: animate 2s linear infinite;
 }
 
-span:before {
+#orb:before {
   content: "";
   position: absolute;
   width: 16px;
@@ -139,7 +137,7 @@ span:before {
 }
 
 /* styles responsive */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   header {
     box-sizing: border-box;
   }
@@ -150,16 +148,13 @@ span:before {
   }
 
   h1 {
-    font-size: 1.9em;
+    font-size: 1em;
     letter-spacing: 5px;
     text-align: center;
-    margin-bottom: 20px;
   }
 
   nav {
     text-align: center;
-
-    margin-left: 78%;
     z-index: 1;
   }
 
@@ -179,7 +174,7 @@ span:before {
   }
 
   .ring {
-    transform: scale(0.5) translate(-8em, -8em);
+    transform: scale(0.7);
     z-index: 1;
   }
 
