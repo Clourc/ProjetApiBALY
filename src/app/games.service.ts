@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class GamesService {
 
   showMoreGames(maxNbShownGames: number, myGamesList: any[], myGamesData: any[]) {
-    maxNbShownGames += 10;
     for (let i = maxNbShownGames; i < maxNbShownGames + 10; i++) {
       if (myGamesData[i] != undefined) {
         myGamesList.push(myGamesData[i]);
