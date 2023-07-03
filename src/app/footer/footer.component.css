@@ -1,0 +1,27 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  background-color: #354f52;
+}
+
+p {
+  background-color: #354f52;
+  color: #cad2c5;
+}
+
+.mentions {
+  background-color: #354f52;
+}
+
+a {
+  color: #cad2c5;
+  padding-right: 20px;
+  background-color: #354f52;
+}
+
+button {
+  margin: 0;
+}

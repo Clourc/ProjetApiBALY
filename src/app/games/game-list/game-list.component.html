@@ -1,0 +1,9 @@
+<app-card-fav></app-card-fav>
+<app-random></app-random>
+<h1>Games List<img src="../../../assets/pictures/manette.png"></h1>
+
+<div class="list">
+  <app-game-card *ngFor="let game of gamesToDisplay" [game]="game"></app-game-card>
+</div>
+
+<button type="button" (click)="showMoreGames()">More games...</button>

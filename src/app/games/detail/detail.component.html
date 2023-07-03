@@ -1,0 +1,90 @@
+<div class="row" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  <div class="thumbCol">
+    <div id="fixedThumb">
+      <h1>{{ this.gameDetails.title }}</h1>
+      <img
+        id="fixedImg"
+        [src]="this.gameDetails.thumbnail"
+        alt="Game's thumbnail"
+      />
+
+      <ul>
+        <li><button>👍</button></li>
+        <li><button>👎</button></li>
+        <li>
+          <button>
+            <a [href]="this.gameDetails.game_url" target="_blank">▶️</a>
+          </button>
+        </li>
+
+        <li>
+          <button (click)="toggleFavGame()">
+            <span
+              *ngIf="
+                this.userFavGames.includes(this.gameDetails.id);
+                else empty_star
+              "
+              id="fav-star"
+              >⭐</span
+            >
+          </button>
+        </li>
+        <ng-template #empty_star><span class="fas fa-star"></span></ng-template>
+      </ul>
+    </div>
+  </div>
+
+  <div id="textNStuff">
+    <h2>Game's description:</h2>
+    <p>
+      {{ this.gameDetails.description }}
+    </p>
+
+    <p>Developer: {{ this.gameDetails.developer }}</p>
+
+    <p>Publisher : {{ this.gameDetails.publisher }}</p>
+
+    <ul id="sysReq" *ngIf="this.gameDetails.platform == 'Windows'">
+      <u>Minimum system requirements :</u>
+      <li>
+        Graphics : {{ this.gameDetails.minimum_system_requirements.graphics }}
+      </li>
+
+      <li>
+        Memory : {{ this.gameDetails.minimum_system_requirements.memory }}
+      </li>
+
+      <li>
+        Processor : {{ this.gameDetails.minimum_system_requirements.processor }}
+      </li>
+      <li>
+        Storage : {{ this.gameDetails.minimum_system_requirements.graphics }}
+      </li>
+    </ul>
+
+    <p>Plateform : {{ this.gameDetails.platform }}</p>
+    <p>Release date : {{ this.gameDetails.release_date }}</p>
+    <div id="screenshots">
+      <div class="screenshot" *ngFor="let screenshot of screenshotArray">
+        <img
+          (click)="isOpen = !isOpen; getOverlayImage(this.screenshot.image)"
+          [src]="this.screenshot.image"
+          alt="screenshot"
+        />
+      </div>
+      <ng-template
+        cdkConnectedOverlay
+        [cdkConnecterOverlayOrigin]="triggerOrigin"
+        [cdkConnectedOverlayOpen]="isOpen"
+        (overlayOutsideClick)="isOpen = false"
+      >
+        <img [src]="this.overlayImageLink" (click)="isOpen = false" />
+      </ng-template>
+    </div>
+  </div>
+</div>
+<h1>Similar Games</h1>
+<app-similar-games
+  [gameGenre]="this.gameDetails.genre"
+  [gameId]="this.gameDetails.id"
+></app-similar-games>

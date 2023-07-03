@@ -1,0 +1,63 @@
+.container {
+  background-image: url(../../assets/pictures/forest.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 98vh;
+  font-family: Arial, sans-serif;
+}
+
+.animated-text,
+.not-found {
+  font-size: 80px;
+  color: #cad2c5;
+  animation: glitch-animation 2s infinite;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+button {
+  margin: 0 auto;
+}
+
+@keyframes glitch-animation {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+  10% {
+    transform: skew(-5deg);
+    opacity: 0.8;
+  }
+  20% {
+    transform: skew(5deg);
+    opacity: 0.6;
+  }
+  30% {
+    transform: skew(-5deg);
+    opacity: 0.8;
+  }
+  40% {
+    transform: skew(5deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: none;
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .animated-text,
+  .not-found {
+    font-size: 40px;
+  }
+}

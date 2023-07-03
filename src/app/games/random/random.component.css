@@ -1,0 +1,50 @@
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  font-size: 10rem;
+  background: linear-gradient(90deg, #52796f, #cad2c5, #354f52);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 2s infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.05);
+}
+
+a {
+  --angle: 0deg;
+  height: 220px;
+	border: 6px solid;
+	border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+	
+	animation: 1s rotate linear infinite;
+}
+
+a>img {
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}

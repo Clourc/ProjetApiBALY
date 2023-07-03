@@ -1,0 +1,105 @@
+#card-fav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.fa-star{
+  text-shadow: #e6f35b 1px 0 10px;;
+}
+
+p{
+  background-color: #354F52;
+  color: #CAD2C5;
+}
+
+h2{
+  background-color: #354F52;
+  color:#CAD2C5;
+}
+
+.image-card {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-height: 200px;
+
+  
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  background-color: #354F52;
+}
+
+
+ul {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+ 
+}
+
+#card-fav li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  margin: 25px;
+  padding: 10px;
+  background-color: #354F52;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+ 
+}
+
+h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-align: center;
+  margin: 20px;
+  color: #CAD2C5;
+}
+
+#card-fav li h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: rgb(102, 103, 123) 1px 0 10px;
+}
+
+#card-fav li img  {
+  height: 160px;
+  width: 280px;
+  max-height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-bottom: 10px;
+  border-radius: 14%;
+}
+
+li:hover{
+  transform: scale(1.04)
+}
+
+#card-fav li p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 11px;
+  color: #CAD2C5;
+  text-align: center;
+  margin-bottom: 10px;
+ 
+
+}
+
+@media screen and (max-width: 768px) {
+  #card-fav li {
+    width: 90%;
+  }
+}

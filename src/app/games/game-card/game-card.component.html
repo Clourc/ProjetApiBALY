@@ -1,0 +1,22 @@
+<a [routerLink]="['/game/', this.game.id]">
+  <div id="game-card">
+    <img [src]="this.game.thumbnail" id="game-thumbnail" />
+    <div class="game-card-info">
+      <strong id="game-name">{{ this.game.title }}</strong>
+      <p id="short-description">{{ this.game.short_description }}</p>
+      <div class="game-category-platform">
+        <!-- Style de jeu-->
+        <strong>{{ this.game.genre }}</strong>
+        <!-- Icone pour représenter la plateform où est disponible le jeu -->
+        <div>
+          <div *ngIf="this.game.platform === 'PC (Windows)'; else browserGame">
+            <img [src]="winIcon" id="platformIcon" />
+          </div>
+          <ng-template #browserGame>
+            <img [src]="browserIcon" id="platformIcon" />
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,129 @@
+app-game-card {
+  width: 75%;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #354f52;
+}
+
+select {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 30%;
+  background-color: #354f52;
+}
+
+h1,
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#no-game-found {
+  background-color: #52796f;
+}
+
+#search-result-title {
+  margin-top: 0;
+}
+
+.mobile-cats {
+  width: 100%;
+}
+
+option {
+  text-align: center;
+  background-color: #354f52;
+  color: #cad2c5;
+}
+
+#checkbox {
+  background-color: #354f52;
+}
+
+input[type=checkbox]{
+  vertical-align: middle;
+}
+
+input[type=checkbox]+label {
+  padding-left: 0.3rem;
+}
+
+#navigationElements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #52796f;
+}
+
+#result {
+  background-color: #52796f;
+}
+
+label {
+  background-color: #354f52;
+}
+
+#platSelect,
+#sort {
+  border-radius: 30px;
+}
+
+select {
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  app-game-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  app-game-card {
+    width: 100%;
+    border-radius: 0 10px 10px 0;
+    background-color: #354f52;
+  }
+
+  .gameCardStyle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #52796f;
+
+    grid-gap: 3em;
+    width: 100%;
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+
+  #deskBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #deskBox > button {
+    margin-top: 2em;
+  }
+
+  #checkboxes {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #354f52;
+    width: 100%;
+    margin: auto;
+    padding: 0.5rem 3em 0.5em;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 25px;
+  }
+}

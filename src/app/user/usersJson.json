@@ -1,0 +1,7 @@
+{
+    "id": "Lucas",
+    "password": "CoucouLucas",
+    "profilePicture": "../assets/placeholder/JackBlackBowser.png",
+    "favoriteGamesIds": [1, 450],
+    "emailAddress": "clourc.myemail@email.com"
+}

@@ -1,0 +1,127 @@
+<div id="profile">
+  <div id="details-favs">
+    <div id="profile-details">
+      <h1>Welcome back {{ user.id }} !</h1>
+      <p>{{ user.emailAddress }}</p>
+      <div id="profile-picture">
+        <!--  Avatar, id... -->
+        <img [src]="user.profilePicture" />
+      </div>
+    </div>
+    <!-- Jeux favoris -->
+    <div id="favorite-games-section">
+      <h1 id="title-fav">My favorite games 🌟</h1>
+      <div id="favorite-games">
+        <a
+          [routerLink]="['/game/', this.game.id]"
+          *ngFor="let game of favoriteGames"
+          id="favorite-game"
+          ><img [src]="game.thumbnail" id="favourite-game-img"
+        /></a>
+      </div>
+    </div>
+  </div>
+  <!-- Logout, change userId.. -->
+  <div id="profile-options">
+    <h1 id="edit-title">Edit profile 🔧</h1>
+    <form (ngSubmit)="onSubmitId(Id_Form)" #Id_Form="ngForm">
+      <div class="input-field">
+        <label for="userId-field">Change login: </label>
+        <input
+          type="text"
+          name="userId"
+          id="userId-field"
+          class="input-text"
+          [placeholder]="user.id"
+          #userId="ngModel"
+          ngModel
+          minlength="3"
+          required
+        />
+      </div>
+      <button type="submit" [disabled]="!Id_Form.valid">Update</button>
+    </form>
+
+    <form
+      (ngSubmit)="Email_Form.valid && onSubmitEmail(Email_Form)"
+      #Email_Form="ngForm"
+    >
+      <div class="input-field">
+        <label for="userEmail-field">Change Email: </label>
+        <input
+          type="text"
+          name="userEmail"
+          class="input-text"
+          id="userEmail-field"
+          [placeholder]="user.emailAddress"
+          #userEmail="ngModel"
+          ngModel
+          required
+          email
+        />
+      </div>
+      <button type="submit" [disabled]="!Email_Form.valid">Update</button>
+    </form>
+
+    <form
+      (ngSubmit)="onSubmitPassword(Password_Form)"
+      #Password_Form="ngForm"
+      id="password-form"
+    >
+      <div id="password-inputs">
+        <div class="input-field">
+          <label for="userPassword-field">Change password: </label>
+          <input
+            type="password"
+            name="userPassword"
+            class="input-text"
+            id="userPassword-field"
+            #userPassword="ngModel"
+            ngModel
+            minlength="8"
+            required
+          />
+        </div>
+        <div class="input-field">
+          <label for="userPasswordCheck-field">Confirm new password: </label>
+          <input
+            type="password"
+            name="userPasswordCheck"
+            id="userPasswordCheck-field"
+            class="input-text"
+            #userPasswordCheck="ngModel"
+            ngModel
+            minlength="8"
+            required
+          />
+        </div>
+      </div>
+      <button type="submit" [disabled]="!Password_Form.valid">Update</button>
+    </form>
+
+    <form
+      (ngSubmit)="Img_Form.valid && onSubmitImg(Img_Form)"
+      #Img_Form="ngForm"
+    >
+      <div class="input-field">
+        <label for="userImg-field">Change profile picture: </label>
+        <input
+          type="url"
+          pattern="https://.*"
+          name="userImg"
+          class="input-text"
+          id="userImg-field"
+          placeholder="https://..."
+          #userImg="ngModel"
+          ngModel
+          required
+        />
+      </div>
+      <button type="submit" [disabled]="!Img_Form.valid">Update</button>
+    </form>
+
+    <button type="button" id="logout-button" (click)="logout()">
+      Log out
+    </button>
+  </div>
+</div>

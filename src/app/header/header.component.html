@@ -1,0 +1,21 @@
+<header>
+ <div id="logo">
+    <a routerLink="/">
+      <div class="ring"><span id="logo-title">BAlY GAMES</span>
+        <span id="orb"></span>
+      </div>
+    </a>
+  </div>
+ <div *ngIf="!isSmallMobileLayout">
+  <h1>Gaming Mode Free</h1>
+</div>
+  <nav>
+    <ul>
+      
+      <li><a routerLink="/search"><i class="fa fa-search" id="searchGames"></i><p>Search</p></a></li>
+      
+      <li *ngIf="!isLoggedIn; else ProfileLink"><a routerLink="/login"><i class="fas fa-user"></i><p>Login</p></a></li>
+      <ng-template #ProfileLink><li><a routerLink="/user"> <i class="fas fa-user"></i><p>Profile</p></a></li></ng-template>
+    </ul>
+  </nav>
+</header>
