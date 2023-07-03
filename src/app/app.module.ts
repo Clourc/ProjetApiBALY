@@ -1,60 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { GamesModule } from './games/games.module';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-
 import { HeaderComponent } from './header/header.component';
-import { DetailComponent } from './detail/detail.component';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { GameCardComponent } from './game-card/game-card.component';
-import { GameListComponent } from './game-list/game-list.component';
-import { SearchComponent } from './search/search.component';
-import { CardFavComponent } from './card-fav/card-fav.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
-import { MentionsComponent } from './mentions/mentions.component';
-import { RandomComponent } from './random/random.component';
-import { SimilarGamesComponent } from './similar-games/similar-games.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { CguComponent } from './cgu/cgu.component';
 import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-
-
-
+import { UserModule } from './user/user.module';
+import { MiscModule } from './misc/misc.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DetailComponent,
-    GameCardComponent,
-    GameListComponent,
-    SearchComponent,
-    CardFavComponent,
     FooterComponent,
-    MentionsComponent,
-    RandomComponent,
-    LoginComponent,
-    SignupComponent,
-    SimilarGamesComponent,
     PageNotFoundComponent,
-    CguComponent,
     CookiesConsentComponent,
-    UserProfileComponent
   ],
   imports: [
     BrowserModule,
+    GamesModule,
+    UserModule,
+    MiscModule,
     AppRoutingModule,
-    OverlayModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent],
