@@ -201,7 +201,7 @@ export class SearchComponent implements OnInit {
         .toLowerCase()
         .includes(this.alphabetInput.toLowerCase());
     });
-    this.games = filtered;
+    this.gamesToDisplay = filtered;
     console.log('Filtered Games:', this.games);
   }
 
