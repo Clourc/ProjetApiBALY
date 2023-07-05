@@ -172,6 +172,9 @@ export class SearchComponent implements OnInit {
       if (this.games.length === 1) {
         this.gamesToDisplay = this.games;
       } else {
+        if(this.maxNbShownGames > this.gamesToDisplay.length){
+          this.maxNbShownGames = this.gamesToDisplay.length;
+        }
         for (let i = 0; i < this.maxNbShownGames; i++) {
           this.gamesToDisplay.push(this.games[i]);
         }
