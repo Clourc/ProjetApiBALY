@@ -53,6 +53,7 @@ export class UserService {
   onSubmitId(Form: NgForm) {
     console.log(Form.value);
     if (this.user) {
+      alert(`Id updated to ${Form.value.userId} !`);
       this.user.id = Form.value.userId;
     }
   }
@@ -60,6 +61,7 @@ export class UserService {
   onSubmitEmail(Form: NgForm) {
     console.log(Form.value);
     if (this.user) {
+      alert(`Email address updated to ${Form.value.userEmail} !`);
       this.user.emailAddress = Form.value.userEmail;
     }
   }
@@ -68,6 +70,7 @@ export class UserService {
     console.log(Form.value);
     if (Form.value.userPassword === Form.value.userPasswordCheck) {
       if (this.user) {
+        alert(`Password updated to ${Form.value.userPassword} !`);
         this.user.password = Form.value.userPassword;
       }
     } else {
@@ -78,6 +81,7 @@ export class UserService {
   onSubmitImg(Img_Form: NgForm) {
     console.log(Img_Form.value);
     if (this.user) {
+      alert(`Profile Picture updated to ${Img_Form.value.userId} !`);
       this.user.profilePicture = Img_Form.value.userImg;
     }
   }
